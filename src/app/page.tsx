@@ -56,12 +56,12 @@ const Home = () => {
       {/* 上边的大标题和小标题 */}
       <div className='bg-[#f5f9fd]'>
         <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
-          <h1 className='text-4xl py-4 font-semibold'>PNG to PDF Converter</h1>
-          <p className='text-lg py-4'>Convert your PNG images to PDF files in seconds. Fastest conversion with our free online PNG to PDF Converter.</p>
+          <h1 className='text-4xl py-4 font-semibold'>PNGからPDFへのコンバーター</h1>
+          <p className='text-lg py-4'>無料のオンラインPNGからPDFへのコンバーターを使用して、数秒でPNG画像をPDFファイルに変換し、最速の変換を体験してください。</p>
         </div>
       </div>
       {/* 下边的上传处理操作 */}
-      <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
+      <div className='px-4 py-2 mt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div className="md:col-span-9">
             {/* 处理的盒子 */}
@@ -100,7 +100,7 @@ const Home = () => {
 
           <div className="md:col-span-3 p-4">
             <div className='text-gray-400'>
-              <span>Share PNG to PDF Converter</span>
+              <span>PNGからPDFへのコンバーターを共有する</span>
             </div>
             <div className='mt-4'>
               <ul className='flex flex-row justify-between'>
@@ -111,7 +111,7 @@ const Home = () => {
               </ul>
             </div>
             <div className='flex justify-center mt-10'>
-              <Button variant="outline">Add to Bookmarks</Button>
+              <Button variant="outline">ブックマークに追加</Button>
             </div>
           </div>
         </div>
@@ -121,25 +121,21 @@ const Home = () => {
       <div className=''>
         <div className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-2">
           <div className='py-6'>
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">
-                launch a rocket into outer space
-              </h2>
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNGをPDFに変換する方法</h2>
               <p className="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+                PNGをPDFに変換する方法を知りたいですか？簡単な手順を紹介します！以下のステップに従って、数分でPNGファイルをPDFに変換できます。
               </p>
           </div>
           <div className="grid gap-8 row-gap-5 md:row-gap-8 lg:grid-cols-3">
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
               <div className="flex items-center mb-2">
                 <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full bg-purple-800">
-                  2
+                  1
                 </p>
-                <p className="text-lg font-bold leading-5">Light it</p>
+                <p className="text-lg font-bold leading-5">ファイルをアップロードする</p>
               </div>
               <p className="text-sm text-gray-900">
-                Skate ipsum dolor sit amet, alley oop vert mute-air Colby Carter
-                flail 180 berm.
+                ボタンを押して、PC、クラウド、またはURLからPNGファイルをアップロードします。
               </p>
             </div>
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
@@ -147,11 +143,10 @@ const Home = () => {
                 <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full bg-purple-800">
                   2
                 </p>
-                <p className="text-lg font-bold leading-5">Light it</p>
+                <p className="text-lg font-bold leading-5">変換に進む</p>
               </div>
               <p className="text-sm text-gray-900">
-                Skate ipsum dolor sit amet, alley oop vert mute-air Colby Carter
-                flail 180 berm.
+                アップロードが完了するまで待ちます。「変換」ボタンをクリックします。
               </p>
             </div>
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
@@ -159,11 +154,10 @@ const Home = () => {
                 <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full bg-purple-800">
                   2
                 </p>
-                <p className="text-lg font-bold leading-5">Light it</p>
+                <p className="text-lg font-bold leading-5">新しいファイルをダウンロード</p>
               </div>
               <p className="text-sm text-gray-900">
-                Skate ipsum dolor sit amet, alley oop vert mute-air Colby Carter
-                flail 180 berm.
+                変換されたPDF文書をデバイスにダウンロードします
               </p>
             </div>
           </div>
@@ -174,7 +168,7 @@ const Home = () => {
       </div>
 
       {/* 下边的核心功能 */}
-      <div className="bg-gray-100">
+      <div className="">
         <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-20">
           <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
