@@ -5,6 +5,41 @@ import { SiYoutubekids } from "react-icons/si";
 import { Button } from "@/components/ui/button"
 
 const Home = () => {
+  const functionsArr = [
+    {
+      "title": "PNGを無料でPDFに変換",
+      "content": "pngpdf.netは便利なオンラインツールを提供し、PNGをPDFドキュメントに迅速かつ無料で変換できます！"
+    },
+    {
+      "title": "ファイル保存の問題",
+      "content": "当プログラムは前端でのアップロードに直接対応し、ブラウザベースの操作なので、ファイルを保存することはありません。安心してご利用ください！"
+    },
+    {
+      "title": "ソフトウェアのインストール不要",
+      "content": "現在のバージョンはウェブ版ですが、今後Googleプラグインを追加予定です。スマートフォン、PC、タブレットで制限なく、迅速にアップロード・ダウンロードできます。"
+    },
+    {
+      "title": "シンプルで使いやすいインターフェース",
+      "content": "最新のフロントエンド技術を使用し、クリーンでシンプルなインターフェースを提供。いつでもどこでも簡単にPNGをPDFに変換できます。"
+    },
+    {
+      "title": "オンラインで複数のPNGをPDFに一括変換",
+      "content": "コア機能は単一のPNG画像をPDFに変換することですが、複数のPNG画像を1つのPDFに変換することもできます。完全無料で数量制限はありません！"
+    },
+    {
+      "title": "多機能の高度な設定",
+      "content": "今後、A4サイズのカスタム用紙、カスタム枠線、カスタム背景など、ドキュメントの美化操作を追加予定です！"
+    },
+    {
+      "title": "ブラウザプラグインについて",
+      "content": "作者はより便利で迅速なPNGからPDFへの変換操作のために、ブラウザプラグインを開発中です。ご期待ください！"
+    },
+    {
+      "title": "多言語対応サイト",
+      "content": "全世界のユーザーに対応するため、12以上の言語を追加しました。PNGからPDFへの変換ニーズに応えます。更新を続けているので、ぜひシェアしてください！"
+    }
+  ];
+
   const [photo, setPhoto] = useState<File | null>(null);
 
   const onChangephoto = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -122,9 +157,9 @@ const Home = () => {
         <div className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-2">
           <div className='py-6'>
             <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNGをPDFに変換する方法</h2>
-              <p className="text-base text-gray-700 md:text-lg">
-                PNGをPDFに変換する方法を知りたいですか？簡単な手順を紹介します！以下のステップに従って、数分でPNGファイルをPDFに変換できます。
-              </p>
+            <p className="text-base text-gray-700 md:text-lg">
+              PNGをPDFに変換する方法を知りたいですか？簡単な手順を紹介します！以下のステップに従って、数分でPNGファイルをPDFに変換できます。
+            </p>
           </div>
           <div className="grid gap-8 row-gap-5 md:row-gap-8 lg:grid-cols-3">
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
@@ -168,213 +203,32 @@ const Home = () => {
       </div>
 
       {/* 下边的核心功能 */}
-      <div className="">
-        <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-20">
-          <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
+      <div className="relative px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6">
+        <div className='py-6'>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNG から PDF コンバーターの主な機能</h2>
+          <p className="text-base text-gray-700 md:text-lg">
+            高速・無料のPNGからPDF変換、多機能で使いやすいオンラインコンバーター。安全かつ迅速な操作で、誰でも簡単に利用可能。
+          </p>
+        </div>
+        <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            functionsArr.map((item, index) => (
+              <div key={index} className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
+                <div className="p-5">
+                  <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-gray-100">
+                    <img src={`/img/${index + 1}.svg`} alt={`SVG ${index + 1}`} />
+                  </div>
+                  <p className="mb-2 font-bold">{item.title}</p>
+                  <p className="text-sm leading-5 text-gray-900">
+                    {item.content}
+                  </p>
                 </div>
-                <p className="mb-2 font-bold">Football Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  Sed ut perspiciatis unde omnis iste. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
+                <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
               </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Bowling Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  Disrupt inspire and think tank, social entrepreneur but
-                  preliminary thinking think tank compelling.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Cycling Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  A slice of heaven. O for awesome, this chocka full cuzzie is as
-                  rip-off as a cracker.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Weight Lifting Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  Meanwhile, in behind the bicycle shed, Hercules Morse, as big as
-                  a horse.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Golf Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  Disrupt inspire and think tank, social entrepreneur but
-                  preliminary thinking think tank compelling.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Hockey Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  A business big enough that it could be listed on the NASDAQ goes
-                  belly up.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Shooting Sports</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  Lookout flogging bilge rat main sheet bilge water nipper fluke
-                  to go on account heave down clap of thunder.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-            <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-              <div className="p-5">
-                <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-indigo-50">
-                  <svg
-                    className="w-8 h-8 text-deep-purple-accent-400"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <p className="mb-2 font-bold">Martial Arts</p>
-                <p className="text-sm leading-5 text-gray-900">
-                  Webtwo ipsum orkut reddit meebo skype vimeo jajah spock empressr
-                  zimbra, mobly napster.
-                </p>
-              </div>
-              <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-            </div>
-          </div>
+            ))
+          }
         </div>
       </div>
-
     </div>
   );
 };
