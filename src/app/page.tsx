@@ -54,14 +54,16 @@ const Home = () => {
   return (
     <div className="container-mt-5">
       {/* 上边的大标题和小标题 */}
-      <div className='border border-b-purple-600 bg-[#f5f9fd] px-16 py-6'>
-        <h1 className='text-4xl py-4 font-semibold'>PNG to PDF Converter</h1>
-        <p className='text-lg py-4'>Convert your PNG images to PDF files in seconds. Fastest conversion with our free online PNG to PDF Converter.</p>
+      <div className='bg-[#f5f9fd]'>
+        <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
+          <h1 className='text-4xl py-4 font-semibold'>PNG to PDF Converter</h1>
+          <p className='text-lg py-4'>Convert your PNG images to PDF files in seconds. Fastest conversion with our free online PNG to PDF Converter.</p>
+        </div>
       </div>
       {/* 下边的上传处理操作 */}
-      <div className='border border-red-950 px-16'>
+      <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-          <div className="md:col-span-9 p-4">
+          <div className="md:col-span-9">
             {/* 处理的盒子 */}
             <div className='border bg-white drop-shadow-md border-gray-400 h-52'>
               <div className="row-mt-5">
@@ -117,49 +119,15 @@ const Home = () => {
 
       {/* 下边的howto */}
       <div className=''>
-
-
-
-
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-          <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-            <div>
-              <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                Make history
+        <div className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-2">
+          <div className='py-6'>
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">
+                launch a rocket into outer space
+              </h2>
+              <p className="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque rem aperiam, eaque ipsa quae.
               </p>
-            </div>
-            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-              <span className="relative inline-block">
-                <svg
-                  viewBox="0 0 52 24"
-                  fill="currentColor"
-                  className="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
-                >
-                  <defs>
-                    <pattern
-                      id="84d09fa9-a544-44bd-88b2-08fdf4cddd38"
-                      x="0"
-                      y="0"
-                      width=".135"
-                      height=".30"
-                    >
-                      <circle cx="1" cy="1" r=".7" />
-                    </pattern>
-                  </defs>
-                  <rect
-                    fill="url(#84d09fa9-a544-44bd-88b2-08fdf4cddd38)"
-                    width="52"
-                    height="24"
-                  />
-                </svg>
-                <span className="relative">Let's</span>
-              </span>
-              launch a rocket into outer space
-            </h2>
-            <p className="text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
-            </p>
           </div>
           <div className="grid gap-8 row-gap-5 md:row-gap-8 lg:grid-cols-3">
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
@@ -207,43 +175,7 @@ const Home = () => {
 
       {/* 下边的核心功能 */}
       <div className="bg-gray-100">
-        <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-          <div className="absolute inset-x-0 top-0 items-center justify-center hidden overflow-hidden md:flex md:inset-y-0">
-            <svg
-              viewBox="0 0 88 88"
-              className="w-full max-w-screen-xl text-indigo-100"
-            >
-              <circle fill="currentColor" cx="44" cy="44" r="15.5" />
-              <circle
-                fillOpacity="0.2"
-                fill="currentColor"
-                cx="44"
-                cy="44"
-                r="44"
-              />
-              <circle
-                fillOpacity="0.2"
-                fill="currentColor"
-                cx="44"
-                cy="44"
-                r="37.5"
-              />
-              <circle
-                fillOpacity="0.3"
-                fill="currentColor"
-                cx="44"
-                cy="44"
-                r="29.5"
-              />
-              <circle
-                fillOpacity="0.3"
-                fill="currentColor"
-                cx="44"
-                cy="44"
-                r="22.5"
-              />
-            </svg>
-          </div>
+        <div className="relative px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-20">
           <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <div className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
               <div className="p-5">
