@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import { SiYoutubekids } from "react-icons/si";
+import { RiTwitterXFill } from "react-icons/ri";
+import { RiInstagramFill } from "react-icons/ri";
+import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 
 const Home = () => {
@@ -46,10 +49,6 @@ const Home = () => {
       "answer": "PNGファイルをアップロードし、「変換」ボタンをクリックして、完了後にPDFファイルをダウンロードしてください。"
     },
     {
-      "question": "このツールは無料ですか？",
-      "answer": "はい、このツールは完全に無料です。"
-    },
-    {
       "question": "複数の画像を1つのPDFにまとめることはできますか？",
       "answer": "はい、複数のPNG画像をアップロードし、「合併」ボタンをクリックすることで可能です。"
     },
@@ -64,7 +63,11 @@ const Home = () => {
     {
       "question": "変換後のPDFファイルは画像の品質を保持しますか？",
       "answer": "はい、変換されたファイルは元の画像の解像度と品質を維持します。"
-    }
+    },
+    {
+      "question": "このツールは無料ですか？",
+      "answer": "はい、このツールは完全に無料です。"
+    },
   ];
 
   const [photo, setPhoto] = useState<File | null>(null);
@@ -117,13 +120,13 @@ const Home = () => {
     <div className="container-mt-5">
       {/* 上边的大标题和小标题 */}
       <div className='bg-[#f5f9fd]'>
-        <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
-          <h1 className='text-4xl py-4 font-semibold'>PNGからPDFへのコンバーター</h1>
-          <p className='text-lg py-4'>無料のオンラインPNGからPDFへのコンバーターを使用して、数秒でPNG画像をPDFファイルに変換し、最速の変換を体験してください。</p>
+        <div className='px-4 py-2 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
+          <h1 className='text-3xl md:text-4xl lg:text-4xl xl:text-4xl py-4 font-semibold'>PNGからPDFへのコンバーター</h1>
+          <p className='text-base md:text-lg lg:text-lg xl:text-lg py-4'>無料のオンラインPNGからPDFへのコンバーターを使用して、数秒でPNG画像をPDFファイルに変換し、最速の変換を体験してください。</p>
         </div>
       </div>
       {/* 下边的上传处理操作 */}
-      <div className='px-4 py-2 mt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
+      <div className='px-4 py-2 mt-2 mx-auto md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div className="md:col-span-9">
             {/* 处理的盒子 */}
@@ -166,14 +169,22 @@ const Home = () => {
             </div>
             <div className='mt-4'>
               <ul className='flex flex-row justify-between'>
-                <li><SiYoutubekids className='text-4xl' /></li>
-                <li><SiYoutubekids className='text-4xl' /></li>
-                <li><SiYoutubekids className='text-4xl' /></li>
-                <li><SiYoutubekids className='text-4xl' /></li>
+                <a href="https://www.youtube.com" target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#FF0000]'>
+                  <li><SiYoutubekids className='text-4xl' /></li>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://pngpdf.net&text=%E6%88%91%E3%81%AF%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A7%E7%84%A1%E6%96%99%E3%81%99%E3%82%8BPNG%E3%82%92PDF%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E6%89%BF%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%E5%A4%89%E6%8F%9B%E9%80%9F%E5%BA%A6%E3%81%AF%E9%9D%9E%E7%B5%84%E7%9A%84%E3%81%AB%E6%95%B7%E3%81%8F%E3%80%81%E3%81%A8%E3%81%BE%E3%81%8B%E3%81%A0%E3%81%8F%E9%87%91%E3%81%AE%E3%81%8D%E3%81%AE%E3%82%88%E3%82%8A%E3%81%8E%E3%81%8B%E3%81%8C%E3%81%84%E3%81%AE%E3%81%AE%E3%81%8C%E3%81%99%E3%81%AE%E3%81%8C%E3%80%81)" target='_blank' rel="nofollow" className='text-gray-500 hover:text-black'>
+                  <li><RiTwitterXFill className='text-4xl' /></li>
+                </a>
+                <a href="https://www.instagram.com/" target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#e93980]'>
+                  <li><RiInstagramFill className='text-4xl' /></li>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://pngpdf.net" target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#4e8deb]'>
+                  <li><FaFacebook className='text-4xl' /></li>
+                </a>
               </ul>
             </div>
             <div className='flex justify-center mt-10'>
-              <Button variant="outline">ブックマークに追加</Button>
+              <Button  variant="outline">ブックマークに追加</Button>
             </div>
           </div>
         </div>
@@ -181,9 +192,9 @@ const Home = () => {
 
       {/* 下边的使用步骤 */}
       <div className=''>
-        <div className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-2">
-          <div className='py-6'>
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNGをPDFに変換する方法</h2>
+        <div className="px-4 py-0 mx-auto md:max-w-full sm:py-2 lg:max-w-screen-xl  md:px-12 lg:px-8 lg:pt-12">
+          <div className='pb-6'>
+            <h2 className="text-xl md:text-2xl xl:text-2xl lg:text-3xl  font-bold text-gray-900 sm:text-2xl md:mx-auto">PNGをPDFに変換する方法</h2>
             <p className="text-base text-gray-700 md:text-lg">
               PNGをPDFに変換する方法を知りたいですか？簡単な手順を紹介します！以下のステップに従って、数分でPNGファイルをPDFに変換できます。
             </p>
@@ -263,9 +274,9 @@ const Home = () => {
       </div>
 
       {/* 下边的核心功能 */}
-      <div className="relative px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6">
+      <div className="relative px-4 py-6 mx-auto md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6">
         <div className='py-6'>
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNG から PDF コンバーターの主な機能</h2>
+          <h2 className="text-xl md:text-2xl xl:text-2xl lg:text-3xl  font-bold text-gray-900 sm:text-2xl md:mx-auto">PNG から PDF コンバーターの主な機能</h2>
           <p className="text-base text-gray-700 md:text-lg">
             高速・無料のPNGからPDF変換、多機能で使いやすいオンラインコンバーター。安全かつ迅速な操作で、誰でも簡単に利用可能。
           </p>
@@ -291,9 +302,9 @@ const Home = () => {
       </div>
 
       {/* 下面FAQ板块 */}
-      <div className='flex flex-col px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6'>
+      <div className='flex flex-col px-4 py-6 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6'>
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNG から PDF への変換に関するいくつかの質問</h2>
+          <h2 className="text-xl md:text-2xl xl:text-2xl lg:text-3xl  font-bold text-gray-900 sm:text-2xl md:mx-auto">PNG から PDF への変換に関するいくつかの質問</h2>
         </div>
         <section className="bg-white dark:bg-gray-900">
           <div className="mx-auto max-w-screen-xl">
