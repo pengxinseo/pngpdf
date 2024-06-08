@@ -23,8 +23,8 @@ const Home = () => {
       "content": "最新のフロントエンド技術を使用し、クリーンでシンプルなインターフェースを提供。いつでもどこでも簡単にPNGをPDFに変換できます。"
     },
     {
-      "title": "オンラインで複数のPNGをPDFに一括変換",
-      "content": "コア機能は単一のPNG画像をPDFに変換することですが、複数のPNG画像を1つのPDFに変換することもできます。完全無料で数量制限はありません！"
+      "title": "複数の画像変換をサポート",
+      "content": "単一の写真の変換をサポートし、複数の写真を 1 つのファイル (最大 20 枚) に結合することを完全に無料でサポートします。"
     },
     {
       "title": "多機能の高度な設定",
@@ -36,7 +36,34 @@ const Home = () => {
     },
     {
       "title": "多言語対応サイト",
-      "content": "全世界のユーザーに対応するため、12以上の言語を追加しました。PNGからPDFへの変換ニーズに応えます。更新を続けているので、ぜひシェアしてください！"
+      "content": "世界中のユーザーに対応するために、12 を超える言語を追加しました。お客様の変換ニーズにお応えします。これからも更新していきますので、どんどん転送してください！"
+    }
+  ];
+
+  const faqArr = [
+    {
+      "question": "PNG画像をPDFファイルに変換する方法は？",
+      "answer": "PNGファイルをアップロードし、「変換」ボタンをクリックして、完了後にPDFファイルをダウンロードしてください。"
+    },
+    {
+      "question": "このツールは無料ですか？",
+      "answer": "はい、このツールは完全に無料です。"
+    },
+    {
+      "question": "複数の画像を1つのPDFにまとめることはできますか？",
+      "answer": "はい、複数のPNG画像をアップロードし、「合併」ボタンをクリックすることで可能です。"
+    },
+    {
+      "question": "このツールはどのデバイスで使用できますか？",
+      "answer": "スマートフォン、PC、タブレットなど、どのデバイスでも使用できます。"
+    },
+    {
+      "question": "ファイルの数やサイズに制限はありますか？",
+      "answer": "一度に最大20個のPNGファイルをアップロードできますが、ファイルサイズに制限はありません。"
+    },
+    {
+      "question": "変換後のPDFファイルは画像の品質を保持しますか？",
+      "answer": "はい、変換されたファイルは元の画像の解像度と品質を維持します。"
     }
   ];
 
@@ -135,7 +162,7 @@ const Home = () => {
 
           <div className="md:col-span-3 p-4">
             <div className='text-gray-400'>
-              <span>PNGからPDFへのコンバーターを共有する</span>
+              <span>このツールを共有する</span>
             </div>
             <div className='mt-4'>
               <ul className='flex flex-row justify-between'>
@@ -152,7 +179,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 下边的howto */}
+      {/* 下边的使用步骤 */}
       <div className=''>
         <div className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-2">
           <div className='py-6'>
@@ -164,8 +191,19 @@ const Home = () => {
           <div className="grid gap-8 row-gap-5 md:row-gap-8 lg:grid-cols-3">
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
               <div className="flex items-center mb-2">
-                <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full bg-purple-800">
-                  1
+                <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+                    <defs>
+                      <style>
+                        {`.cls-1{fill:#231f20;}`}
+                      </style>
+                    </defs>
+                    <title>scribble final version</title>
+                    <g id="Layer_1" data-name="Layer 1">
+                      <path className="cls-1" d="M42.14,85.81a35.13,35.13,0,0,1-15.92-5.93A32.92,32.92,0,0,1,20,74.07,34.8,34.8,0,0,1,15.33,67a41.49,41.49,0,0,1-3.71-11.49,39.52,39.52,0,0,1,2-21,36,36,0,0,1,13-16.46A36.83,36.83,0,0,1,44.07,11.6a31.26,31.26,0,0,1,11.91,1,29.62,29.62,0,0,1,2.85.92l1.35.64c.45.22.87.48,1.31.72l1.28.74c.42.26.82.55,1.22.82l1.21.83c.39.29.77.6,1.15.9,1.87,1.55,1.25,1.81-.9,1.6-1-.14-2.56-.24-4.25-.4-.86,0-1.78-.07-2.71-.15-.48,0-.94-.06-1.44,0s-.92-.23-1.4-.31a32.06,32.06,0,0,0-5-.73l-1.25-.07c-.42,0-.84,0-1.26,0a23.15,23.15,0,0,0-2.5,0,29.23,29.23,0,0,0-9.75,2,31.13,31.13,0,0,0-4.54,2.2,31.55,31.55,0,0,0-4.12,3,30.3,30.3,0,0,0-6.64,7.89,29,29,0,0,0-3.8,12.21A41.42,41.42,0,0,0,18,58.51a33,33,0,0,0,2.51,6.76,26.2,26.2,0,0,0,4,5.93,26.91,26.91,0,0,0,12,7.52,35.29,35.29,0,0,0,17.83.42A45.35,45.35,0,0,0,67.19,74a32,32,0,0,0,5.47-4,18.33,18.33,0,0,0,2.22-2.45l1-1.31c.29-.46.54-1,.82-1.43a21.13,21.13,0,0,0,2.57-9.64,28.74,28.74,0,0,0-1.53-9.82c-.5-1.38-1-2.71-1.64-4-1.09-2.5-2-4-2.32-5.33a7.27,7.27,0,0,1-.22-1.75,5.31,5.31,0,0,1,.35-1.65,12.2,12.2,0,0,1,.57-1.55c.42-.74,1.25-.83,2.45-.26a11.12,11.12,0,0,1,4.17,3.85,33.49,33.49,0,0,1,4.81,10.16,32.55,32.55,0,0,1,.9,11.73A29.34,29.34,0,0,1,79.2,73.19L77,75.32a9.26,9.26,0,0,1-1.2,1l-1.23.9a35,35,0,0,1-3.66,2.34c-1.25.66-2.48,1.36-3.77,2a50.88,50.88,0,0,1-8,3,45,45,0,0,1-17,1.5Z" />
+                      <text x="45" y="45" transform="rotate(12,-34,0)" fill="#231f20" fontSize="50" fontFamily="Arial" fontWeight="bold">1</text>
+                    </g>
+                  </svg>
                 </p>
                 <p className="text-lg font-bold leading-5">ファイルをアップロードする</p>
               </div>
@@ -175,8 +213,19 @@ const Home = () => {
             </div>
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
               <div className="flex items-center mb-2">
-                <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full bg-purple-800">
-                  2
+                <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+                    <defs>
+                      <style>
+                        {`.cls-1{fill:#231f20;}`}
+                      </style>
+                    </defs>
+                    <title>scribble final version</title>
+                    <g id="Layer_1" data-name="Layer 1">
+                      <path className="cls-1" d="M42.14,85.81a35.13,35.13,0,0,1-15.92-5.93A32.92,32.92,0,0,1,20,74.07,34.8,34.8,0,0,1,15.33,67a41.49,41.49,0,0,1-3.71-11.49,39.52,39.52,0,0,1,2-21,36,36,0,0,1,13-16.46A36.83,36.83,0,0,1,44.07,11.6a31.26,31.26,0,0,1,11.91,1,29.62,29.62,0,0,1,2.85.92l1.35.64c.45.22.87.48,1.31.72l1.28.74c.42.26.82.55,1.22.82l1.21.83c.39.29.77.6,1.15.9,1.87,1.55,1.25,1.81-.9,1.6-1-.14-2.56-.24-4.25-.4-.86,0-1.78-.07-2.71-.15-.48,0-.94-.06-1.44,0s-.92-.23-1.4-.31a32.06,32.06,0,0,0-5-.73l-1.25-.07c-.42,0-.84,0-1.26,0a23.15,23.15,0,0,0-2.5,0,29.23,29.23,0,0,0-9.75,2,31.13,31.13,0,0,0-4.54,2.2,31.55,31.55,0,0,0-4.12,3,30.3,30.3,0,0,0-6.64,7.89,29,29,0,0,0-3.8,12.21A41.42,41.42,0,0,0,18,58.51a33,33,0,0,0,2.51,6.76,26.2,26.2,0,0,0,4,5.93,26.91,26.91,0,0,0,12,7.52,35.29,35.29,0,0,0,17.83.42A45.35,45.35,0,0,0,67.19,74a32,32,0,0,0,5.47-4,18.33,18.33,0,0,0,2.22-2.45l1-1.31c.29-.46.54-1,.82-1.43a21.13,21.13,0,0,0,2.57-9.64,28.74,28.74,0,0,0-1.53-9.82c-.5-1.38-1-2.71-1.64-4-1.09-2.5-2-4-2.32-5.33a7.27,7.27,0,0,1-.22-1.75,5.31,5.31,0,0,1,.35-1.65,12.2,12.2,0,0,1,.57-1.55c.42-.74,1.25-.83,2.45-.26a11.12,11.12,0,0,1,4.17,3.85,33.49,33.49,0,0,1,4.81,10.16,32.55,32.55,0,0,1,.9,11.73A29.34,29.34,0,0,1,79.2,73.19L77,75.32a9.26,9.26,0,0,1-1.2,1l-1.23.9a35,35,0,0,1-3.66,2.34c-1.25.66-2.48,1.36-3.77,2a50.88,50.88,0,0,1-8,3,45,45,0,0,1-17,1.5Z" />
+                      <text x="45" y="45" transform="rotate(12,-34,0)" fill="#231f20" fontSize="50" fontFamily="Arial" fontWeight="bold">2</text>
+                    </g>
+                  </svg>
                 </p>
                 <p className="text-lg font-bold leading-5">変換に進む</p>
               </div>
@@ -186,8 +235,19 @@ const Home = () => {
             </div>
             <div className="p-5 duration-300 transform bg-white border-2 border-dashed rounded shadow-sm border-deep-purple-accent-200 hover:-translate-y-2">
               <div className="flex items-center mb-2">
-                <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full bg-purple-800">
-                  2
+                <p className="flex items-center justify-center w-10 h-10 mr-2 text-lg font-bold text-white rounded-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+                    <defs>
+                      <style>
+                        {`.cls-1{fill:#231f20;}`}
+                      </style>
+                    </defs>
+                    <title>scribble final version</title>
+                    <g id="Layer_1" data-name="Layer 1">
+                      <path className="cls-1" d="M42.14,85.81a35.13,35.13,0,0,1-15.92-5.93A32.92,32.92,0,0,1,20,74.07,34.8,34.8,0,0,1,15.33,67a41.49,41.49,0,0,1-3.71-11.49,39.52,39.52,0,0,1,2-21,36,36,0,0,1,13-16.46A36.83,36.83,0,0,1,44.07,11.6a31.26,31.26,0,0,1,11.91,1,29.62,29.62,0,0,1,2.85.92l1.35.64c.45.22.87.48,1.31.72l1.28.74c.42.26.82.55,1.22.82l1.21.83c.39.29.77.6,1.15.9,1.87,1.55,1.25,1.81-.9,1.6-1-.14-2.56-.24-4.25-.4-.86,0-1.78-.07-2.71-.15-.48,0-.94-.06-1.44,0s-.92-.23-1.4-.31a32.06,32.06,0,0,0-5-.73l-1.25-.07c-.42,0-.84,0-1.26,0a23.15,23.15,0,0,0-2.5,0,29.23,29.23,0,0,0-9.75,2,31.13,31.13,0,0,0-4.54,2.2,31.55,31.55,0,0,0-4.12,3,30.3,30.3,0,0,0-6.64,7.89,29,29,0,0,0-3.8,12.21A41.42,41.42,0,0,0,18,58.51a33,33,0,0,0,2.51,6.76,26.2,26.2,0,0,0,4,5.93,26.91,26.91,0,0,0,12,7.52,35.29,35.29,0,0,0,17.83.42A45.35,45.35,0,0,0,67.19,74a32,32,0,0,0,5.47-4,18.33,18.33,0,0,0,2.22-2.45l1-1.31c.29-.46.54-1,.82-1.43a21.13,21.13,0,0,0,2.57-9.64,28.74,28.74,0,0,0-1.53-9.82c-.5-1.38-1-2.71-1.64-4-1.09-2.5-2-4-2.32-5.33a7.27,7.27,0,0,1-.22-1.75,5.31,5.31,0,0,1,.35-1.65,12.2,12.2,0,0,1,.57-1.55c.42-.74,1.25-.83,2.45-.26a11.12,11.12,0,0,1,4.17,3.85,33.49,33.49,0,0,1,4.81,10.16,32.55,32.55,0,0,1,.9,11.73A29.34,29.34,0,0,1,79.2,73.19L77,75.32a9.26,9.26,0,0,1-1.2,1l-1.23.9a35,35,0,0,1-3.66,2.34c-1.25.66-2.48,1.36-3.77,2a50.88,50.88,0,0,1-8,3,45,45,0,0,1-17,1.5Z" />
+                      <text x="45" y="45" transform="rotate(12,-34,0)" fill="#231f20" fontSize="50" fontFamily="Arial" fontWeight="bold">3</text>
+                    </g>
+                  </svg>
                 </p>
                 <p className="text-lg font-bold leading-5">新しいファイルをダウンロード</p>
               </div>
@@ -213,7 +273,7 @@ const Home = () => {
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {
             functionsArr.map((item, index) => (
-              <div key={index} className="flex flex-col justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
+              <div key={index} className="flex flex-col border justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
                 <div className="p-5">
                   <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-gray-100">
                     <img src={`/img/${index + 1}.svg`} alt={`SVG ${index + 1}`} />
@@ -229,6 +289,41 @@ const Home = () => {
           }
         </div>
       </div>
+
+      {/* 下面FAQ板块 */}
+      <div className='flex flex-col px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6'>
+        <div>
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-2xl md:mx-auto">PNG から PDF への変換に関するいくつかの質問</h2>
+        </div>
+        <section className="bg-white dark:bg-gray-900">
+          <div className="mx-auto max-w-screen-xl">
+            <div className="grid mt-8 text-left md:gap-16 dark:border-gray-700 md:grid-cols-3">
+              {faqArr.map((item, index) => (
+                <div key={index} className="mb-4 lg:mb-0 xl:mb-0 md:mb-0">
+                  <h3 className="flex items-center mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                    <svg
+                      className="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                    {item.question}
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </section>
+      </div>
+
     </div>
   );
 };
