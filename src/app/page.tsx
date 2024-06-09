@@ -6,8 +6,12 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
+import {Icon1,Icon2,Icon3,Icon4,Icon5,Icon6,Icon7,Icon8} from "@/components/Icon"
 
 const Home = () => {
+
+  const icons = [<Icon1 />, <Icon2 />, <Icon3 />, <Icon4 />, <Icon5 />, <Icon6 />, <Icon7 />, <Icon8 />];
+
   const functionsArr = [
     {
       "title": "PNGを無料でPDFに変換",
@@ -287,7 +291,7 @@ const Home = () => {
               <div key={index} className="flex flex-col border justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
                 <div className="p-5">
                   <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-gray-100">
-                    <img src={`/img/${index + 1}.svg`} alt={`SVG ${index + 1}`} />
+                    {icons[index]}
                   </div>
                   <p className="mb-2 font-bold">{item.title}</p>
                   <p className="text-sm leading-5 text-gray-900">
