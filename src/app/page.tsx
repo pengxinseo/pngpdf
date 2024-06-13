@@ -2,13 +2,20 @@
 import React, { useState } from 'react';
 import jsPDF from 'jspdf';
 import { SiYoutubekids } from "react-icons/si";
-import { RiTwitterXFill } from "react-icons/ri";
-import { RiInstagramFill } from "react-icons/ri";
+import { RiTwitterXFill, RiFileImageLine, RiInstagramFill } from "react-icons/ri";
+import { GiCheckMark } from "react-icons/gi";
+import { TbFileDownload } from "react-icons/tb";
+import { useToast } from "@/components/ui/use-toast"
+import { Toaster } from "@/components/ui/toaster"
+import { BiSolidCloudUpload } from "react-icons/bi";
 import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
-import {Icon1,Icon2,Icon3,Icon4,Icon5,Icon6,Icon7,Icon8} from "@/components/Icon"
+import { Input } from "@/components/ui/input"
+import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8 } from "@/components/Icon"
 
 const Home = () => {
+
+  const { toast } = useToast()
 
   const icons = [<Icon1 />, <Icon2 />, <Icon3 />, <Icon4 />, <Icon5 />, <Icon6 />, <Icon7 />, <Icon8 />];
 
@@ -74,48 +81,55 @@ const Home = () => {
     },
   ];
 
-  const [photo, setPhoto] = useState<File | null>(null);
+  const [photo, setPhoto] = useState<File[]>([]);
 
   const onChangephoto = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setPhoto(e.target.files[0]);
+    if (e.target.files) {
+      const newPhotos = Array.from(e.target.files);
+      if (photo.length + newPhotos.length > 30) {
+        toast({
+          title: "リマインダー",
+          description: "アップロードできる写真は最大 30 枚までです。",
+        })
+        return;
+      }
+      setPhoto(prevPhotos => [...prevPhotos, ...newPhotos]);
     }
   };
 
-  const pdfGenerate = () => {
-    if (!photo) return;
+  const pdfGenerate = (index: number) => {
+    if (index < 0 || index >= photo.length) return;
+
+    const photoItem = photo[index];
+    if (!photoItem) return; // 检查 photoItem 是否存在
 
     const reader = new FileReader();
-    reader.readAsDataURL(photo);
-    reader.onload = function (e) {
-      if (!e.target || !e.target.result) return;
+    reader.readAsDataURL(photoItem);
+
+    reader.onloadend = function () {
+      const imgData = reader.result as string; // 读取文件的 Data URL
 
       const img = new Image();
-      img.src = e.target.result as string;
+      img.src = imgData;
+
       img.onload = function () {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        const imgWidth = img.width;
-        const imgHeight = img.height;
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
 
-        canvas.width = imgWidth;
-        canvas.height = imgHeight;
-        ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
-
-        const imgData = canvas.toDataURL('image/jpeg', 0.80);
-
-        // Create a PDF page with the same dimensions as the image
         const doc = new jsPDF({
-          orientation: imgWidth > imgHeight ? 'landscape' : 'portrait',
+          orientation: img.width > img.height ? 'landscape' : 'portrait',
           unit: 'px',
-          format: [imgWidth, imgHeight],
+          format: [img.width, img.height],
         });
 
-        // Add image to PDF
-        doc.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-        doc.save(`${photo.name}.pdf`);
+        const imgDataFromCanvas = canvas.toDataURL('image/jpeg', 0.8);
+        doc.addImage(imgDataFromCanvas, 'JPEG', 0, 0, img.width, img.height);
+        doc.save(`${photoItem.name}.pdf`); // 使用 photoItem 的 name 属性
       };
     };
   };
@@ -134,35 +148,46 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div className="md:col-span-9">
             {/* 处理的盒子 */}
-            <div className='border bg-white drop-shadow-md border-gray-400 h-52'>
-              <div className="row-mt-5">
-                <div className="col-lg-3">
-                  {photo && (
-                    <div className="image-container">
-                      <img alt="not found" className="image-fit result" width="200" height="230" src={URL.createObjectURL(photo)} />
+            <div className='border-2 border-dashed rounded-sm bg-white drop-shadow-md border-gray-300'>
+              <div className="row-mt-5 p-2">
+
+                { //如果存在图片就显示列表
+                  photo.map((photo, index) => (
+                    <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center border-b border-gray-500 last-of-type:border-none gap-2">
+                      <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
+                        <RiFileImageLine size={17} className="flex-shrink-0"/>
+                        <span className="ml-2 overflow-hidden text-ellipsis">{photo.name}</span>
+                      </div>
+                      <div className="flex justify-center col-span-1">
+                        <GiCheckMark />
+                      </div>
+                      <div className="flex justify-end col-span-1">
+                        <Button  className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16}/>下载</Button>
+                      </div>
                     </div>
-                  )}
-                </div>
+                  ))
+                }
 
-                <div className="col-lg-4">
-                  <div className="form-group-mt-5">
-                    <label className="file-input">
-                      Upload Image
-                      <input
-                        type="file"
-                        name="photo"
-                        accept="image/png, image/jpeg, image/jpg"
-                        onChange={onChangephoto}
-                      />
-                    </label>
-                  </div>
-                </div>
-
-                <div className="col-lg">
-                  <button className="btn-pdf" onClick={pdfGenerate} disabled={!photo}>
-                    Download PDF
-                  </button>
-                </div>
+                { // 如果 photo 数组为空，则显示上传按钮
+                  photo.length === 0 && (
+                    <div className="col-lg-4 mt-10 mb-10 flex flex-col items-cente">
+                      <div className="form-group">
+                        <label className="file-input flex flex-col items-center cursor-pointer">
+                          <BiSolidCloudUpload className=" text-gray-500 w-12 h-12 mb-2" />
+                          <span className="text-gray-700">クリックして画像をアップロード</span>
+                          <Input
+                            type="file"
+                            name="photo"
+                            onChange={onChangephoto}
+                            multiple
+                            accept="image/png, image/jpeg, image/jpg"
+                            className="shadcn-input hidden"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  )
+                }
               </div>
             </div>
           </div>
@@ -188,7 +213,11 @@ const Home = () => {
               </ul>
             </div>
             <div className='flex justify-center mt-10'>
-              <Button  variant="outline">ブックマークに追加</Button>
+              <Button variant="outline" onClick={()=>{
+                toast({
+                  description: "Your message has been sent.",
+                })
+              }}>ブックマークに追加</Button>
             </div>
           </div>
         </div>
@@ -338,8 +367,8 @@ const Home = () => {
 
         </section>
       </div>
-
-    </div>
+      <Toaster />
+    </div >
   );
 };
 
