@@ -227,8 +227,8 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div className="md:col-span-9">
             {/* 选项工具 */}
-            <div className='flex border border-red-500'>
-
+            <div className='flex'>
+        
             </div>
             {/* 上传图片 */}
             <div className='border-2 border-dashed rounded-sm bg-white drop-shadow-md border-gray-300'>
