@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <link rel="canonical" href="https://pngpdf.net" />
+        <script defer data-domain="pngpdf.net" src="https://stat.re/js/script.js"></script>
       </head>
       <body
         className={cn(
