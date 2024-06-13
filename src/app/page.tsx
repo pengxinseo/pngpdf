@@ -215,7 +215,7 @@ const Home = () => {
             <div className='flex justify-center mt-10'>
               <Button variant="outline" onClick={()=>{
                 toast({
-                  description: "Your message has been sent.",
+                  description: "現在のページでブラウザのブックマークをクリックし、[ブックマークに追加] をクリックします。",
                 })
               }}>ブックマークに追加</Button>
             </div>
