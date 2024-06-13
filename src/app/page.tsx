@@ -193,23 +193,31 @@ const Home = () => {
           </div>
 
           <div className="md:col-span-3 p-4">
-            <div className='text-gray-400'>
+            <div className='text-black'>
               <span>このツールを共有する</span>
             </div>
             <div className='mt-4'>
               <ul className='flex flex-row justify-between'>
-                <a href="https://www.youtube.com" target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#FF0000]'>
-                  <li><SiYoutubekids className='text-4xl' /></li>
-                </a>
-                <a href="https://twitter.com/intent/tweet?url=https://pngpdf.net&text=%E6%88%91%E3%81%AF%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A7%E7%84%A1%E6%96%99%E3%81%99%E3%82%8BPNG%E3%82%92PDF%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E6%89%BF%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%E5%A4%89%E6%8F%9B%E9%80%9F%E5%BA%A6%E3%81%AF%E9%9D%9E%E7%B5%84%E7%9A%84%E3%81%AB%E6%95%B7%E3%81%8F%E3%80%81%E3%81%A8%E3%81%BE%E3%81%8B%E3%81%A0%E3%81%8F%E9%87%91%E3%81%AE%E3%81%8D%E3%81%AE%E3%82%88%E3%82%8A%E3%81%8E%E3%81%8B%E3%81%8C%E3%81%84%E3%81%AE%E3%81%AE%E3%81%8C%E3%81%99%E3%81%AE%E3%81%8C%E3%80%81)" target='_blank' rel="nofollow" className='text-gray-500 hover:text-black'>
-                  <li><RiTwitterXFill className='text-4xl' /></li>
-                </a>
-                <a href="https://www.instagram.com/" target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#e93980]'>
-                  <li><RiInstagramFill className='text-4xl' /></li>
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://pngpdf.net" target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#4e8deb]'>
-                  <li><FaFacebook className='text-4xl' /></li>
-                </a>
+                <li>
+                  <a href="https://www.youtube.com" target='_blank' rel="nofollow" aria-label='ユーチューブにジャンプ' className='text-gray-500 hover:text-[#FF0000]'>
+                    <SiYoutubekids className='text-4xl' />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/intent/tweet?url=https://pngpdf.net&text=%E6%88%91%E3%81%AF%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A7%E7%84%A1%E6%96%99%E3%81%99%E3%82%8BPNG%E3%82%92PDF%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E6%89%BF%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%E5%A4%89%E6%8F%9B%E9%80%9F%E5%BA%A6%E3%81%AF%E9%9D%9E%E7%B5%84%E7%9A%84%E3%81%AB%E6%95%B7%E3%81%8F%E3%80%81%E3%81%A8%E3%81%BE%E3%81%8B%E3%81%A0%E3%81%8F%E9%87%91%E3%81%AE%E3%81%8D%E3%81%AE%E3%82%88%E3%82%8A%E3%81%8E%E3%81%8B%E3%81%8C%E3%81%84%E3%81%AE%E3%81%AE%E3%81%8C%E3%81%99%E3%81%AE%E3%81%8C%E3%80%81)" aria-label='ツイッターにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-black'>
+                    <RiTwitterXFill className='text-4xl' />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/" aria-label='インスタグラムにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#e93980]'>
+                    <RiInstagramFill className='text-4xl' />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/sharer/sharer.php?u=https://pngpdf.net" aria-label='フェイスブックにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#4e8deb]'>
+                    <FaFacebook className='text-4xl' />
+                  </a>
+                </li>
               </ul>
             </div>
             <div className='flex justify-center mt-10'>
@@ -368,8 +376,10 @@ const Home = () => {
         </section>
       </div>
       <Toaster />
+      <Icon2/>
     </div >
   );
 };
 
 export default Home;
+
