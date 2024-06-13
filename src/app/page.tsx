@@ -4,7 +4,8 @@ import jsPDF from 'jspdf';
 import { SiYoutubekids } from "react-icons/si";
 import { RiTwitterXFill, RiFileImageLine, RiInstagramFill } from "react-icons/ri";
 import { GiCheckMark } from "react-icons/gi";
-import { TbFileDownload } from "react-icons/tb";
+import { AiTwotoneDelete } from "react-icons/ai";
+import { TbFileDownload, TbDownload } from "react-icons/tb";
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { BiSolidCloudUpload } from "react-icons/bi";
@@ -82,7 +83,9 @@ const Home = () => {
   ];
 
   const [photo, setPhoto] = useState<File[]>([]);
+  const [hebingTag, setHebingTag] = useState(false);
 
+  // 图片上传改渲染lsit
   const onChangephoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newPhotos = Array.from(e.target.files);
@@ -97,6 +100,7 @@ const Home = () => {
     }
   };
 
+  //点击单张下载图片
   const pdfGenerate = (index: number) => {
     if (index < 0 || index >= photo.length) return;
 
@@ -134,6 +138,81 @@ const Home = () => {
     };
   };
 
+  //多张png转换成一个PDF
+  const mergePhotosToPdf = () => {
+    if (photo.length === 0) return; // 如果没有图片，直接返回
+    setHebingTag(true);
+    const imgDataPromises = photo.map((photoItem) => {
+      return new Promise<{ dataURL: string, width: number, height: number }>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(photoItem);
+        reader.onload = () => {
+          const img = new Image();
+          img.src = reader.result as string;
+          img.onload = () => {
+            resolve({ dataURL: reader.result as string, width: img.width, height: img.height });
+          };
+        };
+        reader.onerror = (error) => reject(error);
+      });
+    });
+  
+    // 等待所有图片加载完成
+    Promise.all(imgDataPromises)
+      .then((images) => {
+        const firstImage = images[0];
+        const pdf = new jsPDF({
+          orientation: firstImage.width > firstImage.height ? 'landscape' : 'portrait',
+          unit: 'px',
+          format: [firstImage.width, firstImage.height]
+        }); // 创建一个新的 PDF 文档
+  
+        images.forEach(({ dataURL, width, height }, index) => {
+          console.log('Adding image:', width, height);
+  
+          const img = new Image();
+          img.src = dataURL;
+  
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+  
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+  
+            const imgDataFromCanvas = canvas.toDataURL('image/jpeg', 0.8);
+  
+            if (index !== 0) {
+              pdf.addPage([width, height]);
+            }
+  
+            pdf.addImage(imgDataFromCanvas, 'JPEG', 0, 0, width, height);
+  
+            // Save the PDF after the last image is added
+            if (index === images.length - 1) {
+              pdf.save(`mergedPhotos_${new Date().toISOString()}.pdf`);
+            }
+
+            setHebingTag(false);
+          };
+        });
+      })
+      .catch(error => {
+        setHebingTag(false);
+        console.error('Error merging photos to PDF:', error);
+      });
+  };
+  
+
+  //清除所有图片
+  const resetPhotos = () => {
+    setPhoto([]);
+  };
+
+
+
   return (
     <div className="container-mt-5">
       {/* 上边的大标题和小标题 */}
@@ -147,11 +226,14 @@ const Home = () => {
       <div className='px-4 py-2 mt-2 mx-auto md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           <div className="md:col-span-9">
-            {/* 处理的盒子 */}
+            {/* 选项工具 */}
+            <div className='flex border border-red-500'>
+
+            </div>
+            {/* 上传图片 */}
             <div className='border-2 border-dashed rounded-sm bg-white drop-shadow-md border-gray-300'>
               <div className="row-mt-5 p-2">
-
-                { //如果存在图片就显示列表
+                {//如果存在图片就显示列表
                   photo.map((photo, index) => (
                     <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center border-b border-gray-500 last-of-type:border-none gap-2">
                       <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
@@ -167,6 +249,17 @@ const Home = () => {
                     </div>
                   ))
                 }
+
+                { //如果图片大于2张的时候 则显示合并按钮
+                  photo.length>1 && (
+                    <div className='flex justify-end pt-3 pb-2'>
+                    <Button className='bg-green-300 text-black font-semibold hover:bg-green-500' size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}><TbDownload size={16} className='mr-2'/>マージ</Button>
+                    <Button className='ml-2 bg-red-300 text-black-500 font-semibold hover:bg-red-500' size={'sm'} onClick={resetPhotos}><AiTwotoneDelete size={16} className='mr-2'/>リセット</Button>
+                  </div>
+                  )
+                }
+               
+                
 
                 { // 如果 photo 数组为空，则显示上传按钮
                   photo.length === 0 && (
@@ -232,7 +325,7 @@ const Home = () => {
       </div>
 
       {/* 下边的使用步骤 */}
-      <div className=''>
+      <div>
         <div className="px-4 py-0 mx-auto md:max-w-full sm:py-2 lg:max-w-screen-xl  md:px-12 lg:px-8 lg:pt-12">
           <div className='pb-6'>
             <h2 className="text-xl md:text-2xl xl:text-2xl lg:text-3xl  font-bold text-gray-900 sm:text-2xl md:mx-auto">PNGをPDFに変換する方法</h2>
