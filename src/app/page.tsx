@@ -228,7 +228,7 @@ const Home = () => {
           <div className="md:col-span-9">
             {/* 选项工具 */}
             <div className='flex'>
-        
+
             </div>
             {/* 上传图片 */}
             <div className='border-2 border-dashed rounded-sm bg-white drop-shadow-md border-gray-300'>
@@ -253,13 +253,15 @@ const Home = () => {
                 { //如果图片大于2张的时候 则显示合并按钮
                   photo.length>1 && (
                     <div className='flex justify-end pt-3 pb-2'>
-                    <Button className='bg-green-300 text-black font-semibold hover:bg-green-500' size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}><TbDownload size={16} className='mr-2'/>マージ</Button>
-                    <Button className='ml-2 bg-red-300 text-black-500 font-semibold hover:bg-red-500' size={'sm'} onClick={resetPhotos}><AiTwotoneDelete size={16} className='mr-2'/>リセット</Button>
-                  </div>
+                      <div className='relative'>
+                        <div className='rounded-full text-sm  text-center w-5 h-5 absolute -top-2 -right-2  bg-black text-white font-semibold'>{photo.length}</div>
+                        <Button className='bg-green-300 text-black font-semibold hover:bg-green-500' size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}><TbDownload size={16} className='mr-2'/>マージ</Button>
+                      </div>
+                      <Button className='ml-4 bg-red-300 text-black-500 font-semibold hover:bg-red-500' size={'sm'} onClick={resetPhotos}><AiTwotoneDelete size={16} className='mr-2'/>リセット</Button>
+                    </div>
                   )
                 }
                
-                
 
                 { // 如果 photo 数组为空，则显示上传按钮
                   photo.length === 0 && (
