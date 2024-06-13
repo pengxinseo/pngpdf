@@ -17,7 +17,7 @@ const Home = () => {
 
   const { toast } = useToast()
 
-  const icons = [<Icon1 />, <Icon2 />, <Icon3 />, <Icon4 />, <Icon5 />, <Icon6 />, <Icon7 />, <Icon8 />];
+  const iconComponents = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8];
 
   const functionsArr = [
     {
@@ -324,20 +324,23 @@ const Home = () => {
         </div>
         <div className="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {
-            functionsArr.map((item, index) => (
-              <div key={index} className="flex flex-col border justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
-                <div className="p-5">
-                  <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-gray-100">
-                    {icons[index]}
+            functionsArr.map((item, index) => {
+              const IconComponent = iconComponents[index % iconComponents.length];
+              return(
+                <div key={index} className="flex flex-col border justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
+                  <div className="p-5">
+                    <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-gray-100">
+                      <IconComponent />
+                    </div>
+                    <p className="mb-2 font-bold">{item.title}</p>
+                    <p className="text-sm leading-5 text-gray-900">
+                      {item.content}
+                    </p>
                   </div>
-                  <p className="mb-2 font-bold">{item.title}</p>
-                  <p className="text-sm leading-5 text-gray-900">
-                    {item.content}
-                  </p>
+                  <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
                 </div>
-                <div className="w-full h-1 ml-auto duration-300 origin-left transform scale-x-0 bg-deep-purple-accent-400 group-hover:scale-x-100" />
-              </div>
-            ))
+              )
+            })
           }
         </div>
       </div>
@@ -376,7 +379,6 @@ const Home = () => {
         </section>
       </div>
       <Toaster />
-      <Icon2/>
     </div >
   );
 };
