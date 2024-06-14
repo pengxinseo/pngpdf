@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import jsPDF from 'jspdf';
 import { SiYoutubekids } from "react-icons/si";
 import { RiTwitterXFill, RiFileImageLine, RiInstagramFill } from "react-icons/ri";
 import { GiCheckMark } from "react-icons/gi";
 import { AiTwotoneDelete } from "react-icons/ai";
+import { RiDeleteBack2Line } from "react-icons/ri";
 import { TbFileDownload, TbDownload } from "react-icons/tb";
 import { useToast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
@@ -13,6 +14,11 @@ import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8 } from "@/components/Icon"
+
+import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
+import DraggableItem from '@/components/DraggableItem';
+
 const Home = () => {
 
   const { toast } = useToast()
@@ -81,13 +87,18 @@ const Home = () => {
     },
   ];
 
-  const [photo, setPhoto] = useState<File[]>([]);
+  interface Photo { id: string; name: string; file: File; }
+  const [photo, setPhoto] = useState<Photo[]>([]);
   const [hebingTag, setHebingTag] = useState(false);
 
   // 图片上传改渲染lsit
   const onChangephoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      const newPhotos = Array.from(e.target.files);
+      const newPhotos = Array.from(e.target.files).map((file) => ({
+        id: file.name,
+        name: file.name,
+        file,
+      }));
       if (photo.length + newPhotos.length > 30) {
         toast({
           title: "リマインダー",
@@ -103,7 +114,7 @@ const Home = () => {
   const pdfGenerate = (index: number) => {
     if (index < 0 || index >= photo.length) return;
 
-    const photoItem = photo[index];
+    const photoItem = photo[index].file;
     if (!photoItem) return; // 检查 photoItem 是否存在
 
     const reader = new FileReader();
@@ -135,7 +146,7 @@ const Home = () => {
 
         const imgDataFromCanvas = canvas.toDataURL('image/jpeg', 0.8);
         doc.addImage(imgDataFromCanvas, 'JPEG', 0, 0, img.width, img.height);
-        doc.save(`${fileNameWithoutExtension}.pdf`); 
+        doc.save(`${fileNameWithoutExtension}.pdf`);
       };
     };
   };
@@ -147,7 +158,7 @@ const Home = () => {
     const imgDataPromises = photo.map((photoItem) => {
       return new Promise<{ dataURL: string, width: number, height: number }>((resolve, reject) => {
         const reader = new FileReader();
-        reader.readAsDataURL(photoItem);
+        reader.readAsDataURL(photoItem.file);
         reader.onload = () => {
           const img = new Image();
           img.src = reader.result as string;
@@ -158,7 +169,7 @@ const Home = () => {
         reader.onerror = (error) => reject(error);
       });
     });
-  
+
     // 等待所有图片加载完成
     Promise.all(imgDataPromises)
       .then((images) => {
@@ -168,30 +179,30 @@ const Home = () => {
           unit: 'px',
           format: [firstImage.width, firstImage.height]
         }); // 创建一个新的 PDF 文档
-  
+
         images.forEach(({ dataURL, width, height }, index) => {
           console.log('Adding image:', width, height);
-  
+
           const img = new Image();
           img.src = dataURL;
-  
+
           img.onload = () => {
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
             if (!ctx) return;
-  
+
             canvas.width = img.width;
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0, img.width, img.height);
-  
+
             const imgDataFromCanvas = canvas.toDataURL('image/jpeg', 0.8);
-  
+
             if (index !== 0) {
               pdf.addPage([width, height]);
             }
-  
+
             pdf.addImage(imgDataFromCanvas, 'JPEG', 0, 0, width, height);
-  
+
             // Save the PDF after the last image is added
             if (index === images.length - 1) {
               pdf.save(`mergedPhotos_${new Date().toISOString()}.pdf`);
@@ -206,13 +217,36 @@ const Home = () => {
         console.error('Error merging photos to PDF:', error);
       });
   };
-  
 
   //清除所有图片
   const resetPhotos = () => {
     setPhoto([]);
   };
 
+
+  // 滑动切换位置的操作
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5,
+      },
+    })
+  );
+  const handleDragEnd = (event:any) => {
+    const { active, over } = event;
+    if (active.id !== over.id) {
+      setPhoto((photo) => {
+        const oldIndex = photo.findIndex(item => item.id === active.id);
+        const newIndex = photo.findIndex(item => item.id === over.id);
+        return arrayMove(photo, oldIndex, newIndex);
+      });
+    }
+  };
+
+  //移除列表中的图片
+  const handleDelete = (id:any) => {
+    setPhoto((photo) => photo.filter(item => item.id !== id));
+  };
 
 
   return (
@@ -233,43 +267,51 @@ const Home = () => {
 
             </div>
             {/* 上传图片 */}
-            <div className='border-2 border-dashed rounded-sm bg-white drop-shadow-md border-gray-300'>
-              <div className="row-mt-5 p-2">
+            <div className='border-2 border-dashed rounded-sm bg-white border-gray-300'>
+              <div className="p-2">
                 {//如果存在图片就显示列表
-                  photo.map((photo, index) => (
-                    <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center border-b border-gray-500 last-of-type:border-none gap-2">
-                      <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
-                        <RiFileImageLine size={17} className="flex-shrink-0"/>
-                        <span className="ml-2 overflow-hidden text-ellipsis">{photo.name}</span>
-                      </div>
-                      <div className="flex justify-center col-span-1">
-                        <GiCheckMark />
-                      </div>
-                      <div className="flex justify-end col-span-1">
-                        <Button  className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16}/>下载</Button>
-                      </div>
-                    </div>
-                  ))
+                  photo.length > 0 && (
+                    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+                      <SortableContext items={photo} strategy={verticalListSortingStrategy}>
+                        {photo.map((p, index) => (
+                          <DraggableItem key={p.id} id={p.id}>
+                            <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center  gap-2 border-b cursor-move  border-gray-500">
+                              <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
+                                <RiFileImageLine size={17} className="flex-shrink-0" />
+                                <span className="ml-2 overflow-hidden text-ellipsis">{p.name}</span>
+                              </div>
+                              <div className="flex justify-center col-span-1">
+                                <GiCheckMark />
+                              </div>
+                              <div className="flex items-center justify-end col-span-1">
+                                <Button className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />下载</Button>
+                                <RiDeleteBack2Line size={22} className=' text-gray-700 hover:text-red-700 ml-2 cursor-pointer' onClick={() => handleDelete(p.id)}/>
+                              </div>
+                            </div>
+                          </DraggableItem>
+                        ))}
+                      </SortableContext>
+                    </DndContext>
+                  )
                 }
 
                 { //如果图片大于2张的时候 则显示合并按钮
-                  photo.length>1 && (
+                  photo.length > 1 && (
                     <div className='flex justify-end pt-3 pb-2'>
                       <div className='relative'>
                         <div className='rounded-full text-sm  text-center w-5 h-5 absolute -top-2 -right-2  bg-black text-white font-semibold'>{photo.length}</div>
-                        <Button className='bg-green-300 text-black font-semibold hover:bg-green-500' size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}><TbDownload size={16} className='mr-2'/>マージ</Button>
+                        <Button className='bg-green-300 text-black font-semibold hover:bg-green-500' size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}><TbDownload size={16} className='mr-2' />マージ</Button>
                       </div>
-                      <Button className='ml-4 bg-red-300 text-black-500 font-semibold hover:bg-red-400' size={'sm'} onClick={resetPhotos}><AiTwotoneDelete size={16} className='mr-2'/>リセット</Button>
+                      <Button className='ml-4 bg-red-300 text-black-500 font-semibold hover:bg-red-400' size={'sm'} onClick={resetPhotos}><AiTwotoneDelete size={16} className='mr-2' />リセット</Button>
                     </div>
                   )
                 }
-               
 
                 { // 如果 photo 数组为空，则显示上传按钮
                   photo.length === 0 && (
-                    <div className="col-lg-4 mt-10 mb-10 flex flex-col items-cente">
+                    <div className="col-lg-4 flex flex-col items-cente">
                       <div className="form-group">
-                        <label className="file-input flex flex-col items-center cursor-pointer">
+                        <label className="file-input py-10  h-full w-full flex flex-col items-center cursor-pointer">
                           <BiSolidCloudUpload className=" text-gray-500 w-12 h-12 mb-2" />
                           <span className="text-gray-700">クリックして画像をアップロード</span>
                           <Input
@@ -318,7 +360,7 @@ const Home = () => {
               </ul>
             </div>
             <div className='flex justify-center mt-10'>
-              <Button variant="outline" onClick={()=>{
+              <Button variant="outline" onClick={() => {
                 toast({
                   description: "現在のページでブラウザのブックマークをクリックし、[ブックマークに追加] をクリックします。",
                 })
@@ -423,7 +465,7 @@ const Home = () => {
           {
             functionsArr.map((item, index) => {
               const IconComponent = iconComponents[index % iconComponents.length];
-              return(
+              return (
                 <div key={index} className="flex flex-col border justify-between overflow-hidden text-left transition-shadow duration-200 bg-white rounded shadow-xl group hover:shadow-2xl">
                   <div className="p-5">
                     <div className="flex items-center justify-center w-10 h-10 mb-4 rounded-full bg-gray-100">
