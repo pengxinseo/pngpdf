@@ -13,8 +13,8 @@ import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8 } from "@/components/Icon"
-import { Container, Draggable } from 'react-smooth-dnd';
-import { applyDrag } from './utils'
+
+
 
 
 
@@ -226,9 +226,6 @@ const Home = () => {
 
   return (
     <div className="container-mt-5">
-
-
-
       {/* 上边的大标题和小标题 */}
       <div className='bg-[#f5f9fd]'>
         <div className='px-4 py-2 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
@@ -249,24 +246,22 @@ const Home = () => {
               <div className="p-2">
                 {//如果存在图片就显示列表
                   photo.length > 0 && (
-                    <Container onDrop={e => setPhoto(applyDrag(photo, e))}>
-                      {photo.map((p, index) => (
-                        <Draggable key={p.id} className='cursor-move'>
-                          <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center  gap-2 border-b  border-gray-500">
-                            <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
-                              <RiFileImageLine size={17} className="flex-shrink-0" />
-                              <span className="ml-2 overflow-hidden text-ellipsis">{p.name}</span>
-                            </div>
-                            <div className="flex justify-center col-span-1">
-                              <GiCheckMark />
-                            </div>
-                            <div className="flex justify-end col-span-1">
-                              <Button className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />下载</Button>
-                            </div>
-                          </div>
-                        </Draggable>
-                      ))}
-                    </Container>
+                      photo.map((p, index) => (
+                        <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center  gap-2 border-b  border-gray-500">
+                        <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
+                          <RiFileImageLine size={17} className="flex-shrink-0" />
+                          <span className="ml-2 overflow-hidden text-ellipsis">{p.name}</span>
+                        </div>
+                        <div className="flex justify-center col-span-1">
+                          <GiCheckMark />
+                        </div>
+                        <div className="flex justify-end col-span-1">
+                          <Button className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />下载</Button>
+                        </div>
+                      </div>
+       
+                      ))
+      
                   )
 
                 }
