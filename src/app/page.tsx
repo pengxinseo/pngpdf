@@ -88,7 +88,6 @@ const Home = () => {
   const onChangephoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const newPhotos = Array.from(e.target.files);
-      console.log(newPhotos);
       if (photo.length + newPhotos.length > 30) {
         toast({
           title: "リマインダー",

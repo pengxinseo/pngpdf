@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import jsPDF from 'jspdf';
 import { SiYoutubekids } from "react-icons/si";
 import { RiTwitterXFill, RiFileImageLine, RiInstagramFill } from "react-icons/ri";
@@ -14,10 +14,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8 } from "@/components/Icon"
 
-
-
-
-
+import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
+import DraggableItem from '@/components/DraggableItem';
 
 const Home = () => {
 
@@ -224,6 +223,23 @@ const Home = () => {
   };
 
 
+
+  const sensors = useSensors(
+    useSensor(PointerSensor)
+  );
+
+  const handleDragEnd = (event:any) => {
+    const { active, over } = event;
+    if (active.id !== over.id) {
+      setPhoto((photo) => {
+        const oldIndex = photo.findIndex(item => item.id === active.id);
+        const newIndex = photo.findIndex(item => item.id === over.id);
+        return arrayMove(photo, oldIndex, newIndex);
+      });
+    }
+  };
+
+
   return (
     <div className="container-mt-5">
       {/* 上边的大标题和小标题 */}
@@ -246,24 +262,27 @@ const Home = () => {
               <div className="p-2">
                 {//如果存在图片就显示列表
                   photo.length > 0 && (
-                      photo.map((p, index) => (
-                        <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center  gap-2 border-b  border-gray-500">
-                        <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
-                          <RiFileImageLine size={17} className="flex-shrink-0" />
-                          <span className="ml-2 overflow-hidden text-ellipsis">{p.name}</span>
-                        </div>
-                        <div className="flex justify-center col-span-1">
-                          <GiCheckMark />
-                        </div>
-                        <div className="flex justify-end col-span-1">
-                          <Button className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />下载</Button>
-                        </div>
-                      </div>
-       
-                      ))
-      
+                    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+                      <SortableContext items={photo} strategy={verticalListSortingStrategy}>
+                        {photo.map((p, index) => (
+                          <DraggableItem key={p.id} id={p.id}>
+                            <div key={index} className="py-1.5 photo-container grid grid-cols-3 items-center  gap-2 border-b  border-gray-500">
+                              <div className="flex items-center col-span-1 overflow-hidden whitespace-nowrap">
+                                <RiFileImageLine size={17} className="flex-shrink-0" />
+                                <span className="ml-2 overflow-hidden text-ellipsis">{p.name}</span>
+                              </div>
+                              <div className="flex justify-center col-span-1">
+                                <GiCheckMark />
+                              </div>
+                              <div className="flex justify-end col-span-1">
+                                <Button className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />下载</Button>
+                              </div>
+                            </div>
+                          </DraggableItem>
+                        ))}
+                      </SortableContext>
+                    </DndContext>
                   )
-
                 }
 
                 { //如果图片大于2张的时候 则显示合并按钮
