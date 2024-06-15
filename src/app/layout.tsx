@@ -12,6 +12,7 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "PNG から PDF: オンライン、無料、安全、高速",
   description: "PNG から PDF は、オンラインで無料かつ安全に、高速に変換できる便利なツールです。我々の簡単なインターフェースで、PNG 画像を瞬時にPDFに変換し、プライバシーとデータの安全を確保します",
+  keywords:"png, to, pdf, 変換する, pngpdf"
 };
 
 export default function RootLayout({
