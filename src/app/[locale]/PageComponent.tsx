@@ -1,5 +1,5 @@
 "use client";
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState } from 'react';
 import jsPDF from 'jspdf';
 import { SiYoutubekids } from "react-icons/si";
 import { RiTwitterXFill, RiFileImageLine, RiInstagramFill } from "react-icons/ri";
@@ -13,14 +13,18 @@ import { BiSolidCloudUpload } from "react-icons/bi";
 import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8 } from "@/components/Icon"
 
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
 import DraggableItem from '@/components/DraggableItem';
 
-const Home = () => {
+
+const PageComponent = ({
+  locale,
+  indexLanguageText
+}:{ locale:any; indexLanguageText: any }) => {
 
   //基础的一些参数设置
   const [pageSizeValue, setPageSizeValue] = useState({ width: 0, height: 0 });    //默认是图片的大小
@@ -618,5 +622,5 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PageComponent;
 
