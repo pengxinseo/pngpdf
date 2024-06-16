@@ -20,11 +20,9 @@ const ChangeLangs = ({
         <SelectGroup>
           {languages.map((item, index) => (
               <SelectItem key={index} value={item.lang} >
-                <a href="https://baidu.com">
-                  <div className="items-center flex flex-row">
-                    <span dangerouslySetInnerHTML={{ __html: item.svg }} className="mr-2"/> {item.language}
-                  </div>
-                </a>
+                <div className="items-center flex flex-row">
+                  <span dangerouslySetInnerHTML={{ __html: item.svg }} className="mr-2"/> {item.language}
+                </div>
               </SelectItem>
           ))}
         </SelectGroup>
