@@ -22,7 +22,7 @@ import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from 
 import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
 import DraggableItem from '@/components/DraggableItem';
 import HeadInfo from "@/components/HeadInfo";
-
+import AnimatedButton from '@/components/AnimatedButton';
 
 
 const PageComponent = ({
@@ -349,10 +349,15 @@ const PageComponent = ({
                     photo.length > 1 && (
                       <div className='flex justify-end pt-3 pb-2'>
                         <div className='relative'>
-                          <div className='rounded-full text-sm  text-center w-5 h-5 absolute -top-2 -right-2  bg-black text-white font-semibold'>{photo.length}</div>
-                          <Button className='bg-green-300 text-black font-semibold hover:bg-green-500' size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}><TbDownload size={16} className='mr-2' />{indexLanguageText.download_combine_str}</Button>
+                          <div className='rounded-full z-50 text-sm  text-center w-5 h-5 absolute -top-2 -right-2  bg-black text-white font-semibold'>{photo.length}</div>
+                          <AnimatedButton bg={'bg-green-300'}  size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}>
+                            <TbDownload size={16} className='mr-2' />
+                            {indexLanguageText.download_combine_str}
+                          </AnimatedButton>
                         </div>
-                        <Button className='ml-4 bg-red-300 text-black-500 font-semibold hover:bg-red-400' size={'sm'} onClick={resetPhotos}><AiTwotoneDelete size={16} className='mr-2' />{indexLanguageText.reset_str}</Button>
+                        <AnimatedButton className="ml-4" bg={'bg-red-300'} size={'sm'} onClick={resetPhotos}>
+                          <AiTwotoneDelete size={16} className='mr-2' />{indexLanguageText.reset_str}
+                        </AnimatedButton>
                       </div>
                     )
                   }
@@ -410,11 +415,13 @@ const PageComponent = ({
                 </ul>
               </div>
               <div className='flex justify-center mt-10'>
-                <Button variant="outline" onClick={() => {
+                <AnimatedButton isBorder bg={'bg-white'}   onClick={() => {
                   toast({
                     description: indexLanguageText.sharemodel_str,
                   })
-                }}>{indexLanguageText.shareButtonText}</Button>
+                }}>
+                  {indexLanguageText.shareButtonText}
+                </AnimatedButton>
               </div>
             </div>
           </div>
