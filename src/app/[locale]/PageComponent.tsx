@@ -14,6 +14,7 @@ import { BiSolidCloudUpload } from "react-icons/bi";
 import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { languages } from "@/config";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7, Icon8 } from "@/components/Icon"
 
@@ -748,9 +749,20 @@ const PageComponent = ({
         </div>
         <Toaster />
       </div >
-      <footer className="flex flex-col px-4 py-0 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-6">
+      <footer className="flex flex-col px-4 py-0 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-5">
+        <div className='flex'>
+          <ul className='flex flex-wrap text-gray-500 text-sm justify-between pb-3 pt-1'>
+            {languages.map((item, index) => (
+              <li key={index} className='mr-4 mt-2'>
+                <a className=' hover:underline hover:text-gray-700' href={item.lang === 'ja' ? 'https://pngpdf.net' : `https://pngpdf.net/${item.lang}`}>
+                  {item.language}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div className="w-full">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {indexLanguageText.banquan_text}。 {indexLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gamil.com</a>
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {indexLanguageText.banquan_text}{indexLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gamil.com</a>
           </span>
         </div>
       </footer>

@@ -6,7 +6,7 @@ const ChangeLangs = ({
   page = ''
 }: { locale: any; page: any }) => {
 
-  const handleSelectItem = (selectedName:any) => {
+  const handleSelectItem = (selectedName: any) => {
     console.log(selectedName);
     const url = `/${selectedName === 'ja' ? '' : `${selectedName}`}`;
     window.location.href = url;
@@ -14,16 +14,16 @@ const ChangeLangs = ({
   return (
     <Select defaultValue={locale} onValueChange={handleSelectItem}>
       <SelectTrigger className="w-[134px] h-[32px]">
-        <SelectValue  placeholder="Select a fruit" />
+        <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           {languages.map((item, index) => (
-              <SelectItem key={index} value={item.lang} >
-                <div className="items-center flex flex-row">
-                  <span dangerouslySetInnerHTML={{ __html: item.svg }} className="mr-2"/> {item.language}
-                </div>
-              </SelectItem>
+            <SelectItem  key={index} value={item.lang}>
+              <div className="items-center flex flex-row">
+                <span dangerouslySetInnerHTML={{ __html: item.svg }} className="mr-2" /> {item.language}
+              </div>
+            </SelectItem>
           ))}
         </SelectGroup>
       </SelectContent>
