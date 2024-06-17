@@ -1,5 +1,6 @@
 import { languages } from "@/config";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { MdOutlineLanguage } from "react-icons/md";
 
 const ChangeLangs = ({
   locale,
@@ -14,6 +15,7 @@ const ChangeLangs = ({
   return (
     <Select defaultValue={locale} onValueChange={handleSelectItem}>
       <SelectTrigger className="w-[134px] h-[32px]">
+        <MdOutlineLanguage className="w-5 h-5 -mr-3"/>
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -21,7 +23,7 @@ const ChangeLangs = ({
           {languages.map((item, index) => (
             <SelectItem  key={index} value={item.lang}>
               <div className="items-center flex flex-row">
-                <span dangerouslySetInnerHTML={{ __html: item.svg }} className="mr-2" /> {item.language}
+                {item.language}
               </div>
             </SelectItem>
           ))}

@@ -769,7 +769,7 @@ const PageComponent = ({
           </ul>
         </div>
         <div className="w-full">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {indexLanguageText.banquan_text}{indexLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gamil.com</a>
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {indexLanguageText.banquan_text}{indexLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gmail.com</a>
           </span>
         </div>
       </footer>
