@@ -15,8 +15,8 @@ const ChangeLangs = ({
   return (
     <Select defaultValue={locale} onValueChange={handleSelectItem}>
       <SelectTrigger className="w-[134px] h-[32px]">
-        <MdOutlineLanguage className="w-5 h-5 -mr-3"/>
-        <SelectValue placeholder="Select a fruit" />
+        <MdOutlineLanguage className="w-5 h-5"/>
+        <SelectValue placeholder="Select a fruit"/> 
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
