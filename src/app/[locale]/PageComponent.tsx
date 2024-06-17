@@ -334,7 +334,7 @@ const PageComponent = ({
                                   <GiCheckMark />
                                 </div>
                                 <div className="flex items-center justify-end col-span-1">
-                                  <Button className='text-sm bg-gray-500' size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />{indexLanguageText.download_one_str}</Button>
+                                  <Button className='text-sm bg-gray-500' aria-labelledby={indexLanguageText.download_one_str} size="dowloadBtn" onClick={() => pdfGenerate(index)}> <TbFileDownload size={16} />{indexLanguageText.download_one_str}</Button>
                                   <RiDeleteBack2Line size={22} className=' text-gray-700 hover:text-red-700 ml-2 cursor-pointer' onClick={() => handleDelete(p.id)} />
                                 </div>
                               </div>
@@ -350,12 +350,12 @@ const PageComponent = ({
                       <div className='flex justify-end pt-3 pb-2'>
                         <div className='relative'>
                           <div className='rounded-full z-50 text-sm  text-center w-5 h-5 absolute -top-2 -right-2  bg-black text-white font-semibold'>{photo.length}</div>
-                          <AnimatedButton bg={'bg-green-300'}  size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}>
+                          <AnimatedButton arialabel={indexLanguageText.download_combine_str} bg={'bg-green-300'}  size={'sm'} disabled={hebingTag} onClick={mergePhotosToPdf}>
                             <TbDownload size={16} className='mr-2' />
                             {indexLanguageText.download_combine_str}
                           </AnimatedButton>
                         </div>
-                        <AnimatedButton className="ml-4" bg={'bg-red-300'} size={'sm'} onClick={resetPhotos}>
+                        <AnimatedButton arialabel={indexLanguageText.reset_str} className="ml-4" bg={'bg-red-300'} size={'sm'} onClick={resetPhotos}>
                           <AiTwotoneDelete size={16} className='mr-2' />{indexLanguageText.reset_str}
                         </AnimatedButton>
                       </div>
@@ -415,7 +415,7 @@ const PageComponent = ({
                 </ul>
               </div>
               <div className='flex justify-center mt-10'>
-                <AnimatedButton isBorder bg={'bg-white'}   onClick={() => {
+                <AnimatedButton arialabel={indexLanguageText.shareButtonText} isBorder bg={'bg-white'}   onClick={() => {
                   toast({
                     description: indexLanguageText.sharemodel_str,
                   })
