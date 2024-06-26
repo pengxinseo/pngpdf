@@ -1,13 +1,14 @@
 {
-  "name": "my-nextjs-app",
+  "name": "pngpdf.net",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "export-posts": "node scripts/exportPosts.js",
+    "dev": "npm run export-posts && next dev",
+    "build": "npm run export-posts && next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages"
+    "pages:build": "npm run export-posts && npx @cloudflare/next-on-pages"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
@@ -20,15 +21,20 @@
     "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.11",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.9.0",
     "jspdf": "^2.5.1",
     "lucide-react": "^0.390.0",
+    "markdown-to-jsx": "^7.4.7",
     "next": "14.2.3",
     "next-intl": "^3.9.1",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tocbot": "^4.28.2"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.11.3",

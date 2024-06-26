@@ -54,13 +54,19 @@
     "faq_p_4": "一次最多可以上传 20 个 PNG 文件，但文件大小没有限制。",
     "faq_p_5": "是的，转换后的文件会保留原始图片的分辨率和质量。",
     "faq_p_6": "是的，这个工具完全免费。",
-    "banquan_text": "版权所有，未经许可禁止转载。",
-    "lianxiyouxiang": "联系邮箱",
     "sharemodel_str": "在当前页面点击浏览器书签，选择[添加到书签]。",
     "download_one_str": "下载",
     "download_combine_str": "合并",
     "reset_str": "重置",
     "upload_tips_title": "提醒",
     "upload_tips_p": "最多可以上传 30 张图片。"
+  },
+  "Blog":{
+    "mulu_str":"目录",
+    "back_str":"返回首页"
+  },
+  "Footer":{
+    "banquan_text": "版权所有，未经许可禁止转载。",
+    "lianxiyouxiang": "联系邮箱"
   }
 }

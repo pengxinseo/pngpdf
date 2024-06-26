@@ -54,13 +54,19 @@
       "faq_p_4":"一度に最大20個のPNGファイルをアップロードできますが、ファイルサイズに制限はありません。",
       "faq_p_5":"はい、変換されたファイルは元の画像の解像度と品質を維持します。",
       "faq_p_6":"はい、このツールは完全に無料です。",
-      "banquan_text":"無断転載を禁ず。",
-      "lianxiyouxiang":" 連絡先メールアドレス",
       "sharemodel_str":"現在のページでブラウザのブックマークをクリックし、[ブックマークに追加] をクリックします。",
       "download_one_str":"下载",
       "download_combine_str":"マージ",
       "reset_str":"リセット",
       "upload_tips_title":"リマインダー",
       "upload_tips_p":"アップロードできる写真は最大 30 枚までです。"
+    },
+    "Blog":{
+      "mulu_str":"目次",
+      "back_str":"ホームに戻る"
+    },
+    "Footer":{
+      "banquan_text":"無断転載を禁ず。",
+      "lianxiyouxiang":" 連絡先メールアドレス"
     }
 }

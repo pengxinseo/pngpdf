@@ -1,12 +1,42 @@
 import { Pathnames } from 'next-intl/navigation';
 
-export const locales = ['en', 'zh', 'ko', 'ja', 'tw', 'pt', 'es', 'de', 'fr', 'vi', 'ru', 'ar'] as const;
+export const locales = ['id', 'hi', 'fil', 'tr', 'ms', 'en', 'zh', 'ko', 'ja', 'tw', 'pt', 'es', 'de', 'fr', 'vi', 'ru', 'ar'] as const;
 
 export const languages = [
+  {
+    code: "id-ID",
+    lang: "id",
+    language: "Indonesia"
+  },
+  {
+    code: "hi-IN",
+    lang: "hi",
+    language: "Hindi"
+  },
+  {
+    code: "fil-PH",
+    lang: "fil",
+    language: "Filipino"
+  },
+  {
+    code: "tr-TR",
+    lang: "tr",
+    language: "Turkish"
+  },
+  {
+    code: "ms-MY",
+    lang: "ms",
+    language: "Malay"
+  },
   {
     code: "en-US",
     lang: "en",
     language: "English"
+  },
+  {
+    code: "ja-JP",
+    lang: "ja",
+    language: "日本語"
   },
   {
     code: "zh-CN",
@@ -17,11 +47,6 @@ export const languages = [
     code: "ko-KR",
     lang: "ko",
     language: "한국어"
-  },
-  {
-    code: "ja-JP",
-    lang: "ja",
-    language: "日本語"
   },
   {
     code: "zh-TW",

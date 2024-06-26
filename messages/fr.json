@@ -54,13 +54,19 @@
     "faq_p_4": "Vous pouvez télécharger jusqu'à 20 fichiers PNG à la fois, sans aucune restriction de taille de fichier.",
     "faq_p_5": "Oui, les fichiers convertis conservent la résolution et la qualité des images d'origine.",
     "faq_p_6": "Oui, cet outil est totalement gratuit à utiliser.",
-    "banquan_text": "Toute reproduction non autorisée est interdite.",
-    "lianxiyouxiang": "Adresse e-mail de contact",
     "sharemodel_str": "Cliquez sur l'icône de signet dans votre navigateur sur la page actuelle, puis sur [Ajouter aux signets].",
     "download_one_str": "Télécharger",
     "download_combine_str": "Fusionner",
     "reset_str": "Réinitialiser",
     "upload_tips_title": "Rappel",
     "upload_tips_p": "Vous pouvez télécharger jusqu'à 30 images."
+  },
+  "Blog":{
+    "mulu_str":"Table des matières",
+    "back_str":"Retour à la maison"
+  },
+  "Footer":{
+    "banquan_text": "Toute reproduction non autorisée est interdite.",
+    "lianxiyouxiang": "Adresse e-mail de contact"
   }
 }

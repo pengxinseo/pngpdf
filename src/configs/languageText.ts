@@ -52,8 +52,6 @@ export const getIndexLanguageText = async () => {
     faq_p_4:tIndex('faq_p_4'),
     faq_p_5:tIndex('faq_p_5'),
     faq_p_6:tIndex('faq_p_6'),
-    banquan_text:tIndex('banquan_text'),
-    lianxiyouxiang:tIndex('lianxiyouxiang'),
     select_margin_str:tIndex('select_margin_str'),
     select_xiao_str:tIndex('select_xiao_str'),
     select_zhong_str:tIndex('select_zhong_str'),
@@ -65,4 +63,20 @@ export const getIndexLanguageText = async () => {
     upload_tips_title:tIndex('upload_tips_title'),
     upload_tips_p:tIndex('upload_tips_p')
   };
+}
+
+export const getFooterLanguageText = async () => {
+  const tFooter = await getTranslations('Footer')
+  return {
+    banquan_text:tFooter('banquan_text'),
+    lianxiyouxiang:tFooter('lianxiyouxiang'),
+  }
+}
+
+export const getBlogLanguageText = async () => {
+  const tBlog = await getTranslations('Blog');
+  return {
+    mulu_str: tBlog('mulu_str'),
+    back_str: tBlog('back_str')
+  }
 }

@@ -54,13 +54,19 @@
     "faq_p_4": "한 번에 최대 20개의 PNG 파일을 업로드할 수 있으며 파일 크기에 제한이 없습니다.",
     "faq_p_5": "예, 변환된 파일은 원본 이미지의 해상도와 품질을 유지합니다.",
     "faq_p_6": "네, 이 도구는 완전히 무료입니다.",
-    "banquan_text": "무단 전재를 금합니다.",
-    "lianxiyouxiang": "연락 이메일 주소",
     "sharemodel_str": "현재 페이지에서 브라우저 북마크 아이콘을 클릭하고 [북마크에 추가]를 클릭합니다.",
     "download_one_str": "다운로드",
     "download_combine_str": "병합",
     "reset_str": "재설정",
     "upload_tips_title": "알림",
     "upload_tips_p": "최대 30장의 사진을 업로드할 수 있습니다."
+  },
+  "Blog":{
+    "mulu_str":"목차",
+    "back_str":"홈으로 돌아가기"
+  },
+  "Footer":{
+    "banquan_text": "무단 전재를 금합니다.",
+    "lianxiyouxiang": "연락 이메일 주소"
   }
 }

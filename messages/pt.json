@@ -54,13 +54,19 @@
     "faq_p_4": "Você pode fazer o upload de até 20 arquivos PNG de uma vez, sem restrições de tamanho de arquivo.",
     "faq_p_5": "Sim, os arquivos convertidos mantêm a resolução e qualidade da imagem original.",
     "faq_p_6": "Sim, esta ferramenta é totalmente gratuita para usar.",
-    "banquan_text": "É proibida a reprodução não autorizada.",
-    "lianxiyouxiang": "Endereço de e-mail de contato",
     "sharemodel_str": "Clique no ícone de marcador no seu navegador na página atual e depois em [Adicionar aos favoritos].",
     "download_one_str": "Baixar",
     "download_combine_str": "Combinar",
     "reset_str": "Resetar",
     "upload_tips_title": "Lembrete",
     "upload_tips_p": "Você pode fazer upload de até 30 imagens."
+  },
+  "Blog": {
+    "mulu_str": "Índice",
+    "back_str":"Voltar para casa"
+  },
+  "Footer": {
+    "banquan_text": "É proibida a reprodução não autorizada.",
+    "lianxiyouxiang": "Endereço de e-mail de contato"
   }
 }

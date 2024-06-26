@@ -8,8 +8,8 @@ const ChangeLangs = ({
 }: { locale: any; page: any }) => {
 
   const handleSelectItem = (selectedName: any) => {
-    console.log(selectedName);
-    const url = `/${selectedName === 'ja' ? '' : `${selectedName}`}`;
+    const baseUrl = selectedName === 'ja' ? '' : `/${selectedName}`;
+    const url = page ? `${baseUrl}${page}` : baseUrl || '/';
     window.location.href = url;
   };
   return (

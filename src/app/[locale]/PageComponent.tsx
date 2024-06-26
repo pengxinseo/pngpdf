@@ -27,8 +27,9 @@ import AnimatedButton from '@/components/AnimatedButton';
 
 const PageComponent = ({
   locale,
-  indexLanguageText
-}: { locale: any; indexLanguageText: any }) => {
+  indexLanguageText,
+  footerLanguageText
+}: { locale: any; indexLanguageText: any,footerLanguageText:any }) => {
 
   //基础的一些参数设置
   const [pageSizeValue, setPageSizeValue] = useState({ width: 0, height: 0 });    //默认是图片的大小
@@ -769,7 +770,7 @@ const PageComponent = ({
           </ul>
         </div>
         <div className="w-full">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {indexLanguageText.banquan_text}{indexLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gmail.com</a>
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {footerLanguageText.banquan_text}{footerLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gmail.com</a>
           </span>
         </div>
       </footer>

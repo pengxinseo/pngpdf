@@ -54,13 +54,19 @@
     "faq_p_4": "Bạn có thể tải lên tối đa 20 tệp PNG một lần mà không có giới hạn về kích thước của từng tệp.",
     "faq_p_5": "Các tệp PDF sau khi chuyển đổi sẽ giữ nguyên độ phân giải và chất lượng hình ảnh ban đầu.",
     "faq_p_6": "Công cụ này hoàn toàn miễn phí để sử dụng.",
-    "banquan_text": "Cấm sao chép không được phép.",
-    "lianxiyouxiang": "Địa chỉ email liên hệ",
     "sharemodel_str": "Nhấn vào biểu tượng đánh dấu trong trình duyệt của bạn trên trang hiện tại và sau đó nhấn [Thêm vào đánh dấu].",
     "download_one_str": "Tải xuống",
     "download_combine_str": "Kết hợp",
     "reset_str": "Đặt lại",
     "upload_tips_title": "Nhắc nhở",
     "upload_tips_p": "Bạn có thể tải lên tối đa 30 hình ảnh."
+  },
+  "Blog": {
+    "mulu_str": "Mục lục",
+    "back_str":"Trở về trang chủ"
+  },
+  "Footer": {
+    "banquan_text": "Cấm sao chép không được phép.",
+    "lianxiyouxiang": "Địa chỉ email liên hệ"
   }
 }
