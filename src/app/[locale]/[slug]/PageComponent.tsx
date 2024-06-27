@@ -19,7 +19,11 @@ import postsFr from '@root/content/fr.json';
 import postsVi from '@root/content/vi.json';
 import postsRu from '@root/content/ru.json';
 import postsAr from '@root/content/ar.json';
-
+import postsFil from '@root/content/fil.json';
+import postsId from '@root/content/id.json';
+import postsTr from '@root/content/tr.json';
+import postsMs from '@root/content/ms.json';
+import postsHi from '@root/content/hi.json';
 
 const PageComponent = ({
   locale,
@@ -44,6 +48,11 @@ const PageComponent = ({
       vi: postsVi,
       ru: postsRu,
       ar: postsAr,
+      fil: postsFil,
+      hi: postsHi,
+      tr: postsTr,
+      id: postsId,
+      ms: postsMs
     } as any;
 
     const posts = postsByLocale[locale];

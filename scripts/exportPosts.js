@@ -19,14 +19,15 @@ const getAllPosts = (language) => {
     const filePath = path.join(CONTENT_DIRECTORY, filename);
     const rawContent = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = matter(rawContent);
-    const { date, description, title } = data;
+    const { date, description, title, keyword} = data;
 
     return {
       content,
       date,
       description,
       slug: filename.replace('.mdx', ''),
-      title
+      title,
+      keyword
     };
   });
 };

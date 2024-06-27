@@ -86,6 +86,10 @@
   @apply text-gray-900 leading-normal break-words;
 }
 
+.markdown img{
+  @apply rounded-sm mb-5;
+}
+
 .markdown>*+* {
   @apply mt-0 mb-4;
 }

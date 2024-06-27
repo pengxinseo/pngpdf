@@ -46,13 +46,12 @@ const Post = ({ locale, slug, langText, post, IndexLanguageText }: { locale: str
         dayjs.locale(locale);
     }
     const postAddTime = dayjs(post.date).format('MMMM D, YYYY');
-
     return (
         <div className='pr-4 mx-4 md:mx-auto xl:mx-auto lg:max-auto:: max-w-7xl mt-5 sm:pr-6 lg:pr-8'>
             <div className='flex flex-col md:flex-row'>
                 <div className='w-full md:w-8/12 md:order-first'>
                     <h1 className="text-4xl font-bold pb-4">
-                        {post.title}
+                        {post.keyword}
                     </h1>
                     {/* <time className="block italic text-gray-500">发布于:{postAddTime}</time> */}
                     <div className='markdown '> 
