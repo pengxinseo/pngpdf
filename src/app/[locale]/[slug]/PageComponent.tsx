@@ -25,8 +25,9 @@ const PageComponent = ({
   locale,
   slug,
   blogLanguageText,
-  footerLanguageText
-}: { locale: any; blogLanguageText: any; slug: any, footerLanguageText: any }) => {
+  footerLanguageText,
+  IndexLanguageText
+}: { locale: any; blogLanguageText: any; slug: any, footerLanguageText: any, IndexLanguageText:any }) => {
 
   //查询mdx文件名作为slug 查询到返回 不存在mdx 则返回 404页面
   const getPostByLocaleAndSlug = (locale: string, slug: string) => {
@@ -60,13 +61,12 @@ const PageComponent = ({
   if (!post) {
     notFound();
   }
-  
-  
+
   return (
     <>
       <HeadInfo
-        title="牛逼"
-        description="牛逼描述"
+        title={post.title}
+        description={post.description}
         locale={locale}
         page={`/${slug}`}
       />
@@ -79,7 +79,7 @@ const PageComponent = ({
             <ChangeLangs locale={locale} page={`/${slug}`} />
           </div>
         </div>
-        <Post locale={locale} slug={slug} langText={blogLanguageText} post={post}/>
+        <Post locale={locale} slug={slug} langText={blogLanguageText} IndexLanguageText={IndexLanguageText} post={post}/>
       </div>
       <Footer page={`/${slug}`} langText={footerLanguageText} />
     </>
