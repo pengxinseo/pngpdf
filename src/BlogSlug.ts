@@ -4,7 +4,8 @@ interface BlogSlug {
     keyword: string;
 }
 const blogSlugs: BlogSlug[] = [
-    {slug:'png-to-pdf',keyword:"png to pdf"}
+    {slug:'png-to-pdf',keyword:"png to pdf"},
+    {slug:"pngtopdf",keyword:"pngtopdf"}
 ];
   
 export default blogSlugs;
