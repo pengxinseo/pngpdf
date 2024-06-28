@@ -7,7 +7,8 @@ const Heading = ({ level, children }: { level: any; children: any }) => {
 
   return (
     <div className="group flex items-center -ml-6">
-      <a href={`#${id}`} className="mr-8 opacity-0 group-hover:opacity-100">
+      <a title={`#${id}`} href={`#${id}`} className="mr-8 opacity-0 group-hover:opacity-100">
+        <span className='sr-only'>{`#${id}`}</span>
         <FaLink className="text-orange-600" />
       </a>
       <Tag id={id} className="inline-block -ml-6 flex-1 border-b border-gray-300">

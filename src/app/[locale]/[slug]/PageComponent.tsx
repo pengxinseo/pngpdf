@@ -82,7 +82,7 @@ const PageComponent = ({
       <div className='px-4 py-2 mx-auto md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8'>
         <div className='flex mt-5 justify-between'>
           <div className='flex'>
-            <a className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400" aria-label="Back to Home " href={`https://pngpdf.net${locale == 'ja' ? '' : `/${locale}`}`}>← {blogLanguageText.back_str}</a>
+            <a title={`https://pngpdf.net${locale == 'ja' ? '' : `/${locale}`}`} className="text-orange-500 hover:text-orange-600 dark:hover:text-orange-400" aria-label="Back to Home " href={`https://pngpdf.net${locale == 'ja' ? '' : `/${locale}`}`}>← {blogLanguageText.back_str}</a>
           </div>
           <div className='flex'>
             <ChangeLangs locale={locale} page={`/${slug}`} />

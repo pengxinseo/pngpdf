@@ -394,22 +394,24 @@ const PageComponent = ({
               <div className='mt-4'>
                 <ul className='flex flex-row justify-between'>
                   <li>
-                    <a href="https://www.youtube.com" target='_blank' rel="nofollow" aria-label='ユーチューブにジャンプ' className='text-gray-500 hover:text-[#FF0000]'>
-                      <SiYoutubekids className='text-4xl' />
+                    <a href="https://www.youtube.com" target='_blank' title='youtube' rel="nofollow" aria-label='ユーチューブにジャンプ' className='text-gray-500 hover:text-[#FF0000]'>
+                      <span className='sr-only'>YouTube</span><SiYoutubekids className='text-4xl' />
                     </a>
                   </li>
                   <li>
-                    <a href="https://twitter.com/intent/tweet?url=https://pngpdf.net&text=%E6%88%91%E3%81%AF%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A7%E7%84%A1%E6%96%99%E3%81%99%E3%82%8BPNG%E3%82%92PDF%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E6%89%BF%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%E5%A4%89%E6%8F%9B%E9%80%9F%E5%BA%A6%E3%81%AF%E9%9D%9E%E7%B5%84%E7%9A%84%E3%81%AB%E6%95%B7%E3%81%8F%E3%80%81%E3%81%A8%E3%81%BE%E3%81%8B%E3%81%A0%E3%81%8F%E9%87%91%E3%81%AE%E3%81%8D%E3%81%AE%E3%82%88%E3%82%8A%E3%81%8E%E3%81%8B%E3%81%8C%E3%81%84%E3%81%AE%E3%81%AE%E3%81%8C%E3%81%99%E3%81%AE%E3%81%8C%E3%80%81)" aria-label='ツイッターにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-black'>
-                      <RiTwitterXFill className='text-4xl' />
+                    <a title='Twitter' href="https://twitter.com/intent/tweet?url=https://pngpdf.net&text=%E6%88%91%E3%81%AF%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A7%E7%84%A1%E6%96%99%E3%81%99%E3%82%8BPNG%E3%82%92PDF%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E6%89%BF%E3%81%A3%E3%81%A6%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%E5%A4%89%E6%8F%9B%E9%80%9F%E5%BA%A6%E3%81%AF%E9%9D%9E%E7%B5%84%E7%9A%84%E3%81%AB%E6%95%B7%E3%81%8F%E3%80%81%E3%81%A8%E3%81%BE%E3%81%8B%E3%81%A0%E3%81%8F%E9%87%91%E3%81%AE%E3%81%8D%E3%81%AE%E3%82%88%E3%82%8A%E3%81%8E%E3%81%8B%E3%81%8C%E3%81%84%E3%81%AE%E3%81%AE%E3%81%8C%E3%81%99%E3%81%AE%E3%81%8C%E3%80%81)" aria-label='ツイッターにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-black'>
+                      <span className='sr-only'>Twitter</span><RiTwitterXFill className='text-4xl' />
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.instagram.com/" aria-label='インスタグラムにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#e93980]'>
+                    <a href="https://www.instagram.com/" aria-label='インスタグラムにジャンプ' target='_blank' title='Instagram' rel="nofollow" className='text-gray-500 hover:text-[#e93980]'>
+                      <span className='sr-only'>Instagram</span>
                       <RiInstagramFill className='text-4xl' />
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://pngpdf.net" aria-label='フェイスブックにジャンプ' target='_blank' rel="nofollow" className='text-gray-500 hover:text-[#4e8deb]'>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://pngpdf.net" aria-label='フェイスブックにジャンプ' target='_blank' title='Facebook' rel="nofollow" className='text-gray-500 hover:text-[#4e8deb]'>
+                      <span className='sr-only'>facebook</span>
                       <FaFacebook className='text-4xl' />
                     </a>
                   </li>
@@ -762,7 +764,7 @@ const PageComponent = ({
           <ul className='flex flex-wrap text-gray-500 text-sm justify-between pb-3 pt-1'>
             {languages.map((item, index) => (
               <li key={index} className='mr-4 mt-2'>
-                <a className=' hover:underline hover:text-gray-700' href={item.lang === 'ja' ? 'https://pngpdf.net' : `https://pngpdf.net/${item.lang}`}>
+                <a className=' hover:underline hover:text-gray-700' title={item.language} href={item.lang === 'ja' ? 'https://pngpdf.net' : `https://pngpdf.net/${item.lang}`}>
                   {item.language}
                 </a>
               </li>
@@ -770,7 +772,7 @@ const PageComponent = ({
           </ul>
         </div>
         <div className="w-full">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" className="hover:underline">pngpdf.net™</a>. {footerLanguageText.banquan_text}{footerLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com">yijunpengxin@gmail.com</a>
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://pngpdf.net" title='pngpdf.net' className="hover:underline">pngpdf.net™</a>. {footerLanguageText.banquan_text}{footerLanguageText.lianxiyouxiang}: <a href="mailto:yijunpengxin@gamil.com" title='yijunpengxin@gmail.com'>yijunpengxin@gmail.com</a>
           </span>
         </div>
       </footer>
