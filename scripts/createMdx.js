@@ -10,27 +10,21 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const createMdxFile = (language, keyword) => {
+const createEmptyMdxFile = (language, keyword) => {
   const CONTENT_DIRECTORY = path.join(BASE_DIRECTORY, language);
   if (!fs.existsSync(CONTENT_DIRECTORY)) {
     console.warn(`${language} 文件夹不存在: ${CONTENT_DIRECTORY}`);
     return;
   }
-  
-  const filenames = fs.readdirSync(CONTENT_DIRECTORY).filter(filename => filename.endsWith('.mdx'));
-  filenames.forEach(filename => {
-    const filePath = path.join(CONTENT_DIRECTORY, filename);
-    const newFilePath = path.join(CONTENT_DIRECTORY, filename.replace('.mdx', `.${keyword}.mdx`));
-    
-    if (fs.existsSync(newFilePath)) {
-      console.warn(`文件已存在: ${newFilePath}`);
-      return;
-    }
 
-    const content = fs.readFileSync(filePath, 'utf-8');
-    fs.writeFileSync(newFilePath, content);
-    console.log(`文件已创建: ${newFilePath}`);
-  });
+  const newFilePath = path.join(CONTENT_DIRECTORY, `${keyword}.mdx`);
+  if (fs.existsSync(newFilePath)) {
+    console.warn(`文件已存在: ${newFilePath}`);
+    return;
+  }
+
+  fs.writeFileSync(newFilePath, ''); // 创建空文件
+  console.log(`文件已创建: ${newFilePath}`);
 };
 
 rl.question('请输入关键词: ', (keyword) => {
@@ -42,7 +36,7 @@ rl.question('请输入关键词: ', (keyword) => {
 
   // Process each language
   LANGUAGES.forEach(language => {
-    createMdxFile(language, keyword);
+    createEmptyMdxFile(language, keyword);
   });
 
   console.log('所有文件已处理完毕。');

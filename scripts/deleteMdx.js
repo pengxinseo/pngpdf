@@ -17,7 +17,7 @@ const deleteMdxFile = (language, keyword) => {
     return;
   }
   
-  const filenames = fs.readdirSync(CONTENT_DIRECTORY).filter(filename => filename.includes(`.${keyword}.mdx`));
+  const filenames = fs.readdirSync(CONTENT_DIRECTORY).filter(filename => filename === `${keyword}.mdx`);
   filenames.forEach(filename => {
     const filePath = path.join(CONTENT_DIRECTORY, filename);
     
