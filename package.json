@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "export-posts": "node scripts/exportPosts.js",
+    "content": "node scripts/watchContent.js",
+    "mdx": "node scripts/createMdx.js",
+    "del": "node scripts/deleteMdx.js",
     "dev": "npm run export-posts && next dev",
     "build": "npm run export-posts && next build",
     "start": "next start",
@@ -19,6 +22,7 @@
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toast": "^1.1.5",
+    "chokidar": "^3.6.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",

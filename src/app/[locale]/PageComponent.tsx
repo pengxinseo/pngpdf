@@ -777,7 +777,7 @@ const PageComponent = ({
           <ul className='flex flex-wrap text-gray-500 text-sm justify-start pb-3 pt-1'>
             {blogSlugs.map((item, index) => (
               <li key={index} className='mr-4 mt-2'>
-                <a className=' hover:underline hover:text-gray-700' title={item.keyword} href={locale == 'ja' ? `https://pngpdf.net/${item.slug}` : `https://pngpdf.net/${locale}/${item.slug}`}>
+                <a className=' hover:underline hover:text-gray-700' target='_blank' title={item.keyword} href={locale == 'ja' ? `https://pngpdf.net/${item.slug}` : `https://pngpdf.net/${locale}/${item.slug}`}>
                   {item.keyword}
                 </a>
               </li>

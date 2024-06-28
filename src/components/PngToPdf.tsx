@@ -342,6 +342,7 @@ export default function PngToPdf({ locale, indexLanguageText }:{locale:any, inde
                                                 <Input
                                                     type="file"
                                                     name="photo"
+                                                    id='uploadImg'
                                                     onChange={onChangephoto}
                                                     multiple
                                                     accept="image/png, image/jpeg, image/jpg"
