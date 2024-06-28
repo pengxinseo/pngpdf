@@ -12,7 +12,8 @@ export default function Toc({langText}:{langText?:any}) {
       orderedList: true,
       scrollSmooth: true,
       scrollSmoothDuration: 400,
-      collapseDepth: 6
+      collapseDepth: 6,
+      includeTitleTags: true 
     })
     return () => tocbot.destroy()
   }, [])
