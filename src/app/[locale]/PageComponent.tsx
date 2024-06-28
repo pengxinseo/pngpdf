@@ -23,6 +23,7 @@ import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-ki
 import DraggableItem from '@/components/DraggableItem';
 import HeadInfo from "@/components/HeadInfo";
 import AnimatedButton from '@/components/AnimatedButton';
+import blogSlugs from '@/BlogSlug';
 
 
 const PageComponent = ({
@@ -509,8 +510,6 @@ const PageComponent = ({
             </div>
           </div>
 
-
-
         </div>
 
         {/* 下边的核心功能 */}
@@ -759,13 +758,27 @@ const PageComponent = ({
         </div>
         <Toaster />
       </div >
+
+      {/* 下边只有主页增加文章链接增加权重去打png to pdf的词 */}
       <footer className="flex flex-col px-4 py-0 mx-auto  md:max-w-full lg:max-w-screen-xl md:px-12 lg:px-8 lg:py-5">
         <div className='flex'>
-          <ul className='flex flex-wrap text-gray-500 text-sm justify-between pb-3 pt-1'>
+          <ul className='flex flex-wrap text-gray-500 text-sm justify-start pb-3 pt-1'>
             {languages.map((item, index) => (
               <li key={index} className='mr-4 mt-2'>
                 <a className=' hover:underline hover:text-gray-700' title={item.language} href={item.lang === 'ja' ? 'https://pngpdf.net' : `https://pngpdf.net/${item.lang}`}>
                   {item.language}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* 渲染博客的二级关键词标签 */}
+        <div className='keywordBox'>
+          <ul className='flex flex-wrap text-gray-500 text-sm justify-start pb-3 pt-1'>
+            {blogSlugs.map((item, index) => (
+              <li key={index} className='mr-4 mt-2'>
+                <a className=' hover:underline hover:text-gray-700' title={item.keyword} href={locale == 'ja' ? `https://pngpdf.net/${item.slug}` : `https://pngpdf.net/${locale}/${item.slug}`}>
+                  {item.keyword}
                 </a>
               </li>
             ))}
