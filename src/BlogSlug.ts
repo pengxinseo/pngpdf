@@ -2,10 +2,11 @@
 interface BlogSlug {
     slug: string;
     keyword: string;
+    datetime: string;
 }
 const blogSlugs: BlogSlug[] = [
-    {slug:'png-to-pdf',keyword:"png to pdf"},
-    {slug:"pngtopdf",keyword:"pngtopdf"}
+    {slug:"pngtopdf",keyword:"pngtopdf",datetime:"2024-06-29"},
+    {slug:'png-to-pdf',keyword:"png to pdf",datetime:"2024-07-02"}
 ];
   
 export default blogSlugs;
