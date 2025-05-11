@@ -183,4 +183,21 @@ Issues and PRs are welcome to help improve this project!
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE). 
+This project is licensed under the [MIT License](LICENSE).
+
+## 📝 Copyright and Attribution
+
+© 2023-2024 PngPDF.net
+
+### How to Cite This Project
+
+If you use or reference this project in your own project or article, please cite it in the following format:
+
+```
+PNG to PDF converter - Developed by PngPDF.net
+Project URL: https://github.com/yourusername/pngpdf
+```
+
+### License Statement
+
+This project code is open-source under the [MIT License](LICENSE). You are free to use, modify, and distribute it, but you must retain the original copyright notice and license information. For full terms, please see the [LICENSE](LICENSE) file. 
