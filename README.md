@@ -201,3 +201,12 @@ Project URL: https://github.com/yourusername/pngpdf
 ### License Statement
 
 This project code is open-source under the [MIT License](LICENSE). You are free to use, modify, and distribute it, but you must retain the original copyright notice and license information. For full terms, please see the [LICENSE](LICENSE) file. 
+
+
+## 🔗 Related Projects
+
+Below are our other related projects:
+
+| Project Name | Website | Description |
+|--------------|---------|-------------|
+| Tiepolo AI | [https://tiepolo.app](https://tiepolo.app) | Transform your ideas into high-quality AI-generated images and videos with Tiepolo AI's powerful technology. Create stunning visual content with simple text prompts - completely free to start. No design skills needed. | 
