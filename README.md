@@ -209,4 +209,4 @@ Below are our other related projects:
 
 | Project Name | Website | Description |
 |--------------|---------|-------------|
-| Tiepolo AI | [https://tiepolo.app](Tiepolo ai) | Transform your ideas into high-quality AI-generated images and videos with Tiepolo AI's powerful technology. Create stunning visual content with simple text prompts - completely free to start. No design skills needed. | 
+| Tiepolo AI | [https://tiepolo.app](Tiepolo ai) | Transform your ideas into high-quality AI-generated images and videos with Tiepolo AI's powerful technology. Create stunning visual content with simple text prompts - completely free to start. No design skills needed.| 
